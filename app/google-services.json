@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "554717744182",
+    "project_id": "projet1-1d2ea",
+    "storage_bucket": "projet1-1d2ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554717744182:android:0329d142f8502380dedc97",
+        "android_client_info": {
+          "package_name": "com.example.gpresence"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCf4RwTyXYN63bNXeVR5jsdfIPzTHxDstc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

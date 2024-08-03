@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_equipement"
+        android:icon="@android:drawable/ic_delete"
+        android:title="Equipement" />
+    <item
+        android:id="@+id/nav_code"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="Code" />
+    <item
+        android:id="@+id/nav_voir_requete"
+        android:icon="@android:drawable/btn_dialog"
+        android:title="Voir Requete" />
+    <item
+        android:id="@+id/nav_etats_globaux"
+        android:icon="@android:drawable/btn_plus"
+        android:title="Etats Globaux" />
+</menu>

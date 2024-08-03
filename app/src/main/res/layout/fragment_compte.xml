@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CompteFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_creer_compte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Créer Compte" />
+
+        <Button
+            android:id="@+id/btn_supprimer_compte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Supprimer Compte" />
+
+        <Button
+            android:id="@+id/btn_attribuer_role"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Attribuer Rôle" />
+
+        <!-- Formulaire de création de compte -->
+        <LinearLayout
+            android:id="@+id/layout_creer_compte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/et_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Username" />
+
+            <EditText
+                android:id="@+id/et_email_creer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/et_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm Password"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/btn_creer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Créer" />
+        </LinearLayout>
+
+        <!-- Formulaire de suppression de compte -->
+        <LinearLayout
+            android:id="@+id/layout_supprimer_compte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/et_email_supprimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+
+            <Button
+                android:id="@+id/btn_supprimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Supprimer" />
+        </LinearLayout>
+
+        <!-- Formulaire d'attribution de rôle -->
+        <LinearLayout
+            android:id="@+id/layout_attribuer_role"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/et_email_role"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+
+            <Spinner
+                android:id="@+id/roleSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:importantForAccessibility="yes"
+                android:importantForAutofill="yes"
+                android:layout_marginBottom="16dp"
+                android:minHeight="48dp"
+                android:padding="16dp" />
+
+
+            <Button
+                android:id="@+id/btn_sauvegarder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sauvegarder" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

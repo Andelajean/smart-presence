@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#0000FF</color> <!-- Example blue color -->
+    <color name="colorPrimaryDar">#00008B</color> <!-- Darker shade of the primary color -->
+    <color name="colorAccent">#FF4081</color> <!-- Accent color -->
+    <color name="colorPrimar">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccen">#03DAC5</color>
+    <color name="whit">#FFFFFF</color>
+    <color name="blac">#000000</color>
+    <color name="skyBlue">#87CEEB</color>
+    <color name="colorStart">#FF5722</color> <!-- Couleur de début -->
+    <color name="colorEnd">#FFC107</color> <!-- Couleur de fin -->
+    <color name="color1">#FF0000</color>
+    <color name="color2">#00FF00</color>
+    <color name="color3">#0000FF</color>
+    <color name="selected">#3F51B5</color>
+    <color name="unselected">#FFFFFF</color>
+</resources>

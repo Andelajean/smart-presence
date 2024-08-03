@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_compte"
+        android:title="Compte" />
+    <item
+        android:id="@+id/nav_role"
+        android:title="Horaire" />
+    <item
+        android:id="@+id/nav_requete"
+        android:title="Requete" />
+    <item
+        android:id="@+id/nav_etats_globaux"
+        android:title="Etats Globaux" />
+</menu>

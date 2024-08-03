@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="Dashboard" />
+    <item
+        android:id="@+id/nav_parametre"
+        android:icon="@drawable/baseline_settings_24"
+        android:title="Parametre" />
+    <item
+        android:id="@+id/nav_profil"
+        android:icon="@drawable/baseline_manage_accounts_24"
+        android:title="Profil" />
+    <item
+        android:id="@+id/nav_requete"
+        android:icon="@android:drawable/sym_action_chat"
+        android:title="Requete" />
+    <item
+        android:id="@+id/nav_admin"
+        android:icon="@drawable/t_l_chargement__2__1"
+        android:title="Admin" />
+</menu>
