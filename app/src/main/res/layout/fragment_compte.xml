@@ -8,25 +8,31 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bordure"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="40dp">
 
         <Button
             android:id="@+id/btn_creer_compte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bouton_back"
             android:text="Créer Compte" />
 
         <Button
             android:id="@+id/btn_supprimer_compte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bouton_back"
             android:text="Supprimer Compte" />
 
         <Button
             android:id="@+id/btn_attribuer_role"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bouton_back"
             android:text="Attribuer Rôle" />
 
         <!-- Formulaire de création de compte -->
@@ -34,14 +40,17 @@
             android:id="@+id/layout_creer_compte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bordure"
             android:orientation="vertical"
-            android:visibility="gone"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:visibility="gone">
 
             <EditText
                 android:id="@+id/et_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/color3"
+                android:textColor="@color/whit"
                 android:hint="Username" />
 
             <EditText
@@ -49,6 +58,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
+                android:background="@color/color3"
+                android:textColor="@color/whit"
                 android:inputType="textEmailAddress" />
 
             <EditText
@@ -56,6 +67,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
+                android:background="@color/color3"
+                android:textColor="@color/whit"
                 android:inputType="textPassword" />
 
             <EditText
@@ -63,12 +76,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Confirm Password"
+                android:background="@color/color3"
+                android:textColor="@color/whit"
                 android:inputType="textPassword" />
 
             <Button
                 android:id="@+id/btn_creer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/color3"
                 android:text="Créer" />
         </LinearLayout>
 
@@ -78,20 +94,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:background="@drawable/bordure"
+            android:visibility="gone">
 
             <EditText
                 android:id="@+id/et_email_supprimer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
+                android:background="@color/color3"
+                android:textColor="@color/whit"
                 android:inputType="textEmailAddress" />
 
             <Button
                 android:id="@+id/btn_supprimer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/unselected"
+                android:backgroundTint="@color/color3"
                 android:text="Supprimer" />
         </LinearLayout>
 
@@ -101,24 +122,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:background="@drawable/bordure"
+            android:visibility="gone">
 
             <EditText
                 android:id="@+id/et_email_role"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
+                android:background="@color/color3"
+                android:textColor="@color/whit"
                 android:inputType="textEmailAddress" />
 
             <Spinner
                 android:id="@+id/roleSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:importantForAccessibility="yes"
                 android:importantForAutofill="yes"
-                android:layout_marginBottom="16dp"
                 android:minHeight="48dp"
+                android:background="@color/color3"
+                android:textColor="@color/whit"
                 android:padding="16dp" />
 
 
@@ -126,6 +152,7 @@
                 android:id="@+id/btn_sauvegarder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/color3"
                 android:text="Sauvegarder" />
         </LinearLayout>
     </LinearLayout>

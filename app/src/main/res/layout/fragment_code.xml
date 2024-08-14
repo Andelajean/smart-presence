@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/whit"
     tools:context=".CodeFragment">
 
     <!-- Espace flexible pour pousser le formulaire vers le bas -->
@@ -12,10 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@android:color/white"
+        android:background="@drawable/bordure"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:layout_marginTop="300dp"
+
         android:padding="16dp">
 
         <!-- Champ Email -->
@@ -25,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:hint="Email"
+            android:background="@drawable/edit_text_background"
             android:importantForAccessibility="yes"
             android:importantForAutofill="yes"
             android:inputType="textEmailAddress"
@@ -38,6 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:ems="10"
+            android:background="@drawable/edit_text_background"
             android:hint="Arrivée"
             android:inputType="text"
             android:minHeight="48dp"
@@ -52,6 +56,7 @@
             android:importantForAccessibility="yes"
             android:importantForAutofill="yes"
             android:padding="16dp"
+            android:background="@drawable/form_background"
             android:text="Sauvegarder" />
     </LinearLayout>
 </LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Ombre -->
+    <item android:right="3dp" android:bottom="3dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+            <corners android:radius="10dp" />
+            <padding  android:left="3dp" android:top="3dp" android:right="3dp" android:bottom="7dp" />
+        </shape>
+    </item>
+
+    <!-- Fond blanc avec bordures violettes -->
+    <item android:left="0dp" android:top="0dp" android:right="0dp" android:bottom="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white" />
+            <stroke android:width="3dp" android:color="@color/purple_background" />
+            <corners android:radius="10dp" />
+        </shape>
+    </item>
+</layer-list>

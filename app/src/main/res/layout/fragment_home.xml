@@ -1,38 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_layout"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whit">
 
-    <TextView
-        android:id="@+id/tv_welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome back, "
-        android:textSize="18sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"/>
+    <!-- Background: Two overlapping triangles (commenté pour l'instant)
+    <ImageView
+        android:layout_width="450dp"
+        android:layout_height="550dp"
+        android:layout_gravity="top|start"
+        android:src="@drawable/forme_bleue"
+        android:scaleType="fitXY" />
+    -->
+
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="154dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical"
+        android:background="@drawable/bordure"
+        android:padding="16dp">
 
-        <Button
-            android:id="@+id/btn_marquer_arrive"
+        <!-- Image at the center -->
+        <ImageView
+            android:id="@+id/center_image"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center"
+            android:background="@drawable/style_image"
+            android:clipToOutline="true"
+            android:src="@drawable/images" />
+
+        <TextView
+            android:id="@+id/tv_welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:text="Marquer Arrive" />
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Bienvenue"
+            android:textColor="@color/color3"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btn_marquer_depart"
-            android:layout_width="wrap_content"
+        <!-- Buttons at the bottom -->
+        <LinearLayout
+            android:layout_width="380dp"
             android:layout_height="wrap_content"
-            android:text="Marquer Depart" />
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_marquer_depart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:background="@drawable/bouton_back"
+                android:text="Marquer Départ"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/btn_marquer_arrive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/bouton_back"
+                android:text="Marquer Arrivée"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
     </LinearLayout>
-
-</RelativeLayout>
+</FrameLayout>

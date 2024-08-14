@@ -4,45 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/whit"
     tools:context=".SettingsFragment">
+
+    <!-- Container for background shapes -->
 
     <!-- Top Layout with Fragment Title and App Logo -->
     <LinearLayout
         android:id="@+id/top_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/image_haut"
         android:orientation="horizontal"
         android:padding="16dp"
+        android:background="@drawable/bordure"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/logo"
+        <FrameLayout
             android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:contentDescription="App Logo"
-            android:src="@drawable/smart_presence" />
+            android:layout_height="48dp">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/style_logo"
+                android:clipToOutline="true"
+                android:contentDescription="Smart Presence Logo"
+                android:scaleType="centerCrop"
+                android:src="@drawable/smart_presence" />
+        </FrameLayout>
 
         <TextView
             android:id="@+id/fragment_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="150dp"
-            android:text="Settings"
-            android:textSize="30sp"
+            android:layout_marginStart="90dp"
+            android:text="Parametre"
             android:textColor="@color/black"
+            android:textSize="30sp"
             android:textStyle="bold" />
-
     </LinearLayout>
 
     <!-- Main ScrollView for Settings -->
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/whit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +59,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/whit"
             android:orientation="vertical"
             android:padding="16dp">
 
@@ -60,8 +67,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
-                android:text="System Settings"
-                android:textColor="@color/black"
+                android:text="Parametre de l'Apllication"
+                android:textColor="@color/color3"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -84,8 +91,8 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:paddingStart="16dp"
-                    android:text="Change Language"
-                    android:textColor="@color/blac"
+                    android:text="Changer de Langue"
+                    android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -96,7 +103,7 @@
 
             <LinearLayout
                 android:id="@+id/change_theme"
-                android:layout_width="380dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/skyBlue"
                 android:orientation="horizontal"
@@ -113,7 +120,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:paddingStart="16dp"
-                    android:text="Change Theme"
+                    android:text="Changer de  Theme"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -129,8 +136,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="16dp"
                 android:paddingBottom="8dp"
-                android:text="Session Settings"
-                android:textColor="@color/blac"
+                android:text="Parametre de Session"
+                android:textColor="@color/color3"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -153,7 +160,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:paddingStart="16dp"
-                    android:text="Reset Password"
+                    android:text="Réinitialiser votre Mot de Passe"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -162,6 +169,44 @@
                     android:layout_height="24dp"
                     android:src="@drawable/baseline_chevron_right_24" />
             </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- Top Triangle (Blue)
+        <ImageView
+            android:id="@+id/top_triangle"
+            android:layout_width="450dp"
+            android:layout_height="550dp"
+            android:src="@drawable/forme_bleue"
+            android:scaleType="fitXY"
+            android:layout_gravity="top|start"
+            app:layout_constraintBottom_toTopOf="@id/top_layout"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.5"/>  -->
+
+                <!-- Bottom Triangle (Orange) positioned at bottom-right corner
+        <ImageView
+            android:id="@+id/bottom_triangle"
+            android:layout_width="450dp"
+            android:layout_height="450dp"
+            android:src="@drawable/former_orange"
+            android:scaleType="fitXY"
+            android:layout_gravity="bottom|end"
+            app:layout_constraintTop_toBottomOf="@id/top_triangle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.5"/>  -->
+            </FrameLayout>
 
             <LinearLayout
                 android:id="@+id/logout"
@@ -182,7 +227,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:paddingStart="16dp"
-                    android:text="Logout"
+                    android:text="Se Deconnecter"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -198,8 +243,8 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="16dp"
                 android:paddingBottom="8dp"
-                android:text="About App"
-                android:textColor="@color/black"
+                android:text="A Propos de L'Application"
+                android:textColor="@color/color3"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -222,9 +267,9 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:paddingStart="16dp"
-                    android:text="About App"
+                    android:text="A Propos de cette Apllication"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <ImageView
                     android:layout_width="24dp"
@@ -243,7 +288,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/baseline_school_24" />
+                    android:src="@drawable/baseline_star_24" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -253,14 +298,13 @@
                     android:paddingStart="16dp"
                     android:text="Credits"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/baseline_chevron_right_24" />
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
