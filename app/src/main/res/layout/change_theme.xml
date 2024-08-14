@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/color3"
+    android:gravity="center">
+
+    <!-- Image au centre -->
+    <ImageView
+        android:id="@+id/center_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/theme"
+        android:background="@drawable/style_image"
+    android:contentDescription="Center Image"
+    android:layout_marginBottom="24dp" />
+
+    <!-- Titre -->
+    <TextView
+        android:id="@+id/theme_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Changer Vos Thèmes ici"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/whit"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Boutons avec images -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!-- Bouton Noir -->
+        <Button
+            android:id="@+id/button_black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@android:color/black"
+            android:drawableLeft="@drawable/baseline_wb_sunny_24"
+            android:drawablePadding="8dp"
+            android:text="Noir"
+            android:textColor="@android:color/white" />
+
+        <!-- Bouton Blanc -->
+        <Button
+            android:id="@+id/button_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/white"
+            android:drawableLeft="@drawable/baseline_lightbulb_circle_24"
+            android:drawablePadding="8dp"
+            android:text="Blanc"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+</LinearLayout>

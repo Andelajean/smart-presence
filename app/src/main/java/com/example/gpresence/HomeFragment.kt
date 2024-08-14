@@ -40,18 +40,6 @@ class HomeFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
 
-        // Animation de transition de couleur pour l'arrière-plan du fragment
-        val backgroundColorAnimator = ObjectAnimator.ofObject(
-            view,
-            "backgroundColor",
-            ArgbEvaluator(),
-            Color.parseColor("#FF4081"),
-            Color.parseColor("#3F51B5")
-        )
-        backgroundColorAnimator.duration = 3000
-        backgroundColorAnimator.start()
-
-
         tvWelcome = view.findViewById(R.id.tv_welcome)
         btnMarquerArrive = view.findViewById(R.id.btn_marquer_arrive)
         btnMarquerDepart = view.findViewById(R.id.btn_marquer_depart)
@@ -67,17 +55,17 @@ class HomeFragment : Fragment() {
         // Fetch and display username
         val user = auth.currentUser
         user?.let {
-            val email = it.email
-            Log.d("HomeFragment", "User email: $email")
-            if (email != null) {
-                firestore.collection("users").document(email).get()
+            val uid = it.uid
+            Log.d("HomeFragment", "User UID: $uid")
+            if (uid != null) {
+                firestore.collection("users").document(uid).get()
                     .addOnSuccessListener { document ->
-                        if (document != null) {
+                        if (document != null && document.exists()) {
                             val username = document.getString("username")
-                            Log.d("HomeFragment", "Fetched username: $email")
-                            tvWelcome.text = "Welcome back, $email"
+                            Log.d("HomeFragment", "Fetched username: $username")
+                            tvWelcome.text = "Bienvenue, $username"
                         } else {
-                            Log.d("HomeFragment", "Document is null")
+                            Log.d("HomeFragment", "Document does not exist")
                             tvWelcome.text = "Welcome back"
                         }
                     }
@@ -87,6 +75,7 @@ class HomeFragment : Fragment() {
                     }
             }
         }
+
 
         btnMarquerArrive.setOnClickListener {
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||

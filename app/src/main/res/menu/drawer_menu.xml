@@ -11,4 +11,7 @@
     <item
         android:id="@+id/nav_etats_globaux"
         android:title="Etats Globaux" />
+    <item
+        android:id="@+id/nav_equipement"
+        android:title="Equipement"/>
 </menu>

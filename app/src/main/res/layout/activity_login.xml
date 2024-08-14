@@ -5,111 +5,104 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/skyBlue"
+    android:background="@color/whit"
     tools:context=".LoginActivity">
 
-    <!-- Zigzag Top -->
-
-    <!-- Logo -->
-    <ImageView
-        android:id="@+id/zigzag_top"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:src="@drawable/image_haut"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    <!-- Logo outside the frame -->
     <ImageView
         android:id="@+id/logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/smart_presence"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/style_image"
+        android:clipToOutline="true"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/zigzag_top" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Title outside the frame -->
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/form_container"
+    <!-- Container for all content with a border, inside the frame -->
+    <TextView
+        android:id="@+id/login_page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:text="Connexion"
+        android:textColor="@color/color3"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
+
+    <LinearLayout
+        android:id="@+id/container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="16dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="4dp"
-        app:layout_constraintBottom_toTopOf="@id/zigzag_bottom"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="90dp"
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:background="@drawable/bordure"
+        app:layout_constraintTop_toBottomOf="@id/login_page_title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <LinearLayout
+        <!-- Email Input Field -->
+        <EditText
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_marginTop="32dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
 
-            <!-- Email field -->
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:background="@color/colorAccent"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:padding="12dp" />
+        <!-- Password Input Field -->
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="Password"
+            android:padding="12dp"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:inputType="textPassword" />
 
-            <!-- Password field -->
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:background="@color/colorAccent"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:padding="12dp"
-                android:textColor="@color/white" />
+        <!-- Login Button -->
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bouton_back"
+            android:text="Login"
+            android:textColor="@color/white" />
 
-            <!-- Login button -->
-            <Button
-                android:id="@+id/login_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:padding="12dp"
-                android:text="Login"
-                android:textColor="@color/white"
-                app:backgroundTint="@color/black" />
+        <!-- Register Link -->
+        <TextView
+            android:id="@+id/register_link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Ou créer un Compte??"
+            android:textColor="@color/color3"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginStart="100dp"
+            android:gravity="center" />
 
-            <!-- Register link -->
-            <TextView
-                android:id="@+id/register_link"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:padding="12dp"
-                android:text="Don't have an account? Register here"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <!-- Zigzag Bottom -->
-    <ImageView
-        android:id="@+id/zigzag_bottom"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:src="@drawable/image_bas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

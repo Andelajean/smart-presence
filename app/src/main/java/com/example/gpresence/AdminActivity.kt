@@ -48,6 +48,7 @@ class AdminActivity : AppCompatActivity() {
                 R.id.nav_etats_globaux -> replaceFragment(EtatsGlobaux())
                 R.id.nav_compte -> replaceFragment(CompteFragment())
                 R.id.nav_requete -> replaceFragment(VoirRequete())
+                R.id.nav_equipement->replaceFragment(Equipement())
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true
