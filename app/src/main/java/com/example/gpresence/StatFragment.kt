@@ -27,7 +27,7 @@ class StatFragment : Fragment() {
                 return when (position) {
                     0 ->HomeFragment()
                     1 ->EtatsGlobaux()
-                    2 ->CodeFragment()
+                    2 ->VoirRequete()
                     else -> throw IllegalStateException("Unexpected position $position")
                 }
             }

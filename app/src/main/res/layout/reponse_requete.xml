@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color3"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <!-- Titre -->
+    <TextView
+        android:id="@+id/titreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Réponse aux requêtes"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/whit"
+        android:layout_marginBottom="24dp"/>
+
+    <LinearLayout
+        android:id="@+id/form_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/bordure">
+
+        <!-- Champ Email -->
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Email"
+            android:textColor="@color/blac"
+            android:background="@drawable/edit_text_background"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:padding="16dp" />
+
+        <!-- Champ EditText pour Arrivée -->
+        <EditText
+            android:id="@+id/editarrive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:ems="10"
+            android:background="@drawable/edit_text_background"
+            android:hint="Arrivée"
+            android:textColor="@color/blac"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:padding="16dp" />
+
+        <!-- Bouton Générer -->
+        <Button
+            android:id="@+id/generateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:background="@drawable/bouton_back"
+            android:text="Sauvegarder" />
+    </LinearLayout>
+</LinearLayout>

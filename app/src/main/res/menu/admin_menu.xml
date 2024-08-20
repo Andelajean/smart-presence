@@ -14,8 +14,8 @@
         android:title="Compte" />
     <item
         android:id="@+id/nav_voir_requete"
-        android:icon="@android:drawable/btn_dialog"
-        android:title="Voir Requête" />
+        android:icon="@drawable/baseline_manage_accounts_24"
+        android:title="Profil" />
 
     <item
         android:id="@+id/nav_profile"

@@ -22,7 +22,7 @@ class VoirRequete : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_voir_requete, container, false)
         recyclerView = view.findViewById(R.id.recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         fetchRequests()
 
@@ -37,13 +37,17 @@ class VoirRequete : Fragment() {
                     val request = document.toObject(Request::class.java).copy(id = document.id)
                     requests.add(request)
                 }
-                requestAdapter = RequestAdapter(requests) { selectedRequest ->
-                    // Handle item click if needed
+                requestAdapter = RequestAdapter(requests, requireContext()) { selectedRequest ->
+                    // Handle item click
                 }
                 recyclerView.adapter = requestAdapter
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(context, "Erreur lors de la récupération des requêtes : ${exception.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Erreur lors de la récupération des requêtes : ${exception.message}",
+                    Toast.LENGTH_LONG
+                ).show()
             }
     }
 }

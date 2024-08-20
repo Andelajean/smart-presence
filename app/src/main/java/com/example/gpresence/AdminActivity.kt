@@ -35,7 +35,7 @@ class AdminActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_voir_requete->{
-                    loadFragment(VoirRequete())
+                    loadFragment(ProfileFragment())
                     true
                 }
                 else -> false

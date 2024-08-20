@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="100dp"
+        android:background="@drawable/bordure"
+        android:layout_centerInParent="true">
+
+        <!-- Titre -->
+        <TextView
+            android:layout_width="258dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:marginBottom="24dp"
+            android:text="Attribuez les rôles ici"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Champ Email -->
+
+        <!-- Liste déroulante pour le rôle -->
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_background"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="16dp" />
+
+        <Spinner
+            android:id="@+id/roleSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Bouton Sauvegarder -->
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sauvegarder"
+            android:textSize="16sp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bouton_back"
+            android:textColor="@android:color/white"
+            android:padding="12dp"/>
+
+    </LinearLayout>
+</RelativeLayout>
