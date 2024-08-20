@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_tableau"
@@ -6,7 +7,7 @@
     <item
         android:id="@+id/nav_equipement"
         android:icon="@drawable/baseline_settings_24"
-        android:title="Equipement" />
+        android:title="Équipement" />
     <item
         android:id="@+id/nav_code"
         android:icon="@drawable/t_l_chargement__2__1"
@@ -14,14 +15,10 @@
     <item
         android:id="@+id/nav_voir_requete"
         android:icon="@android:drawable/btn_dialog"
-        android:title="Voir Requete" />
-    <item
-        android:id="@+id/nav_etats_globaux"
-        android:icon="@android:drawable/btn_plus"
-        android:title="Etats Globaux" />
+        android:title="Voir Requête" />
+
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/baseline_manage_accounts_24"
-        android:title="Paramtre" />
-
+        android:title="Paramètre" />
 </menu>
