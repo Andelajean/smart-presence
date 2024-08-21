@@ -8,115 +8,34 @@
     android:background="@color/whit"
     tools:context=".Equipement">
 
-    <!-- Layout for Title and Image at the Top -->
-    <LinearLayout
-        android:id="@+id/top_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        android:background="@drawable/bordure"
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_equipem"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="64dp"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ad_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/retour"
-            android:layout_gravity="center_vertical" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Gestion des Equipements"
-            android:textColor="@color/color3"
-            android:textSize="24sp"
-            android:gravity="center_vertical"
-            android:layout_marginStart="16dp"
-            android:layout_weight="1"/>
-    </LinearLayout>
-
-    <!-- LinearLayout for Buttons -->
-    <LinearLayout
-        android:id="@+id/button_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/bordure"
-        android:layout_marginTop="50dp"
-        android:padding="16dp"
-        app:layout_constraintTop_toBottomOf="@id/top_layout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <!-- Boutons pour Ajouter, Supprimer, Modifier -->
-        <Button
-            android:id="@+id/button_add"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bouton_back"
-            android:text="Ajouter" />
-
-        <Button
-            android:id="@+id/button_delete"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/bouton_back"
-            android:text="Supprimer" />
-
-        <Button
-            android:id="@+id/button_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bouton_back"
-            android:text="Modifier" />
-    </LinearLayout>
-
-    <!-- Conteneur pour le formulaire -->
-    <LinearLayout
-        android:id="@+id/form_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        android:orientation="vertical"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/button_layout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <!-- Champ Nom Wifi -->
-        <EditText
-            android:id="@+id/wifi_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_background"
-            android:textColor="@android:color/black"
-            android:hint="Nom Wifi"
-            android:padding="12dp" />
-
-        <!-- Champ Adresse MAC -->
-        <EditText
-            android:id="@+id/mac_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/edit_text_background"
-            android:textColor="@android:color/black"
-            android:hint="Adresse MAC"
-            android:padding="12dp" />
-
-        <!-- Bouton Ajouter -->
-        <Button
-            android:id="@+id/button_submit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/black"
-            android:background="@drawable/bouton_back"
-            android:text="Ajouter" />
-    </LinearLayout>
+    <!-- ImageButton -->
+    <ImageButton
+        android:id="@+id/ad_button"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:layout_margin="16dp"
+    android:layout_marginBottom="16dp"
+    android:contentDescription="@string/add_button_desc"
+    android:minWidth="48dp"
+    android:minHeight="48dp"
+    android:background="@drawable/style_logo"
+    android:clipToOutline="true"
+    android:src="@drawable/telechargement"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.882"
+    app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,57 +2,65 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color3"
     android:padding="16dp">
 
+    <!-- Conteneur centré et agrandi -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="100dp"
+        android:padding="40dp"
         android:background="@drawable/bordure"
         android:layout_centerInParent="true">
 
         <!-- Titre -->
         <TextView
-            android:layout_width="258dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:marginBottom="24dp"
             android:text="Attribuez les rôles ici"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/blac"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp" />
 
-        <!-- Champ Email -->
-
-        <!-- Liste déroulante pour le rôle -->
-
+        <!-- Champ Email agrandi -->
         <EditText
             android:id="@+id/emailEditText"
-            android:layout_width="256dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_background"
             android:hint="Email"
+            android:textColor="@color/blac"
             android:inputType="textEmailAddress"
-            android:padding="16dp" />
+            android:padding="20dp"
+            android:textSize="18sp"
+            android:layout_marginTop="12dp"/>
 
+        <!-- Liste déroulante pour le rôle agrandie -->
         <Spinner
             android:id="@+id/roleSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:layout_marginTop="16dp"/>
+            android:padding="16dp"
+            android:textColor="@color/blac"
+            android:textSize="18sp"
+            android:background="@drawable/edit_text_background"
+            android:layout_marginTop="20dp"/>
 
-        <!-- Bouton Sauvegarder -->
+        <!-- Bouton Sauvegarder agrandi -->
         <Button
             android:id="@+id/saveButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sauvegarder"
-            android:textSize="16sp"
-            android:layout_marginTop="24dp"
+            android:textSize="18sp"
+            android:layout_marginTop="28dp"
             android:background="@drawable/bouton_back"
             android:textColor="@android:color/white"
-            android:padding="12dp"/>
+            android:padding="16dp"/>
 
     </LinearLayout>
+
 </RelativeLayout>

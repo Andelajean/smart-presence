@@ -21,7 +21,8 @@ class CompteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_compte, container, false)
-        recyclerView = view.findViewById(R.id.recycler_view)
+
+        recyclerView = view.findViewById(R.id.recycler_view_users)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         fetchUsers()
@@ -35,17 +36,14 @@ class CompteFragment : Fragment() {
                 val users = result.map { document ->
                     document.toObject(User::class.java).copy(id = document.id)
                 }
-                adapter = ListeCompte(users, requireContext()) { selectedUser ->
-                    // Handle item click
+                adapter = ListeCompte(users, requireContext()) { user ->
+                    // Gérer le clic sur un élément utilisateur
+                    Toast.makeText(requireContext(), "Utilisateur cliqué: ${user.username}", Toast.LENGTH_SHORT).show()
                 }
                 recyclerView.adapter = adapter
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(
-                    requireContext(),
-                    "Erreur lors de la récupération des utilisateurs : ${exception.message}",
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(requireContext(), "Erreur : ${exception.message}", Toast.LENGTH_LONG).show()
             }
     }
 }

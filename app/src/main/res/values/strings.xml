@@ -7,6 +7,7 @@
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>
     <string name="reply_title">Default reply action</string>
+    <string name="add_button_desc">Ajouter un élément</string>
 
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>

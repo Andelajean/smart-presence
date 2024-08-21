@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/color3"
+    android:gravity="center">
+
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:padding="24dp"
+        android:background="@drawable/bordure"
+        android:orientation="vertical">
+
+        <!-- Champ Nom du Wifi -->
+
+        <EditText
+            android:id="@+id/wifi_nam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_background"
+            android:hint="Nom du Wifi"
+            android:padding="12dp"
+            android:textColor="@android:color/black" />
+
+        <!-- Champ Adresse MAC -->
+        <EditText
+            android:id="@+id/mac_addres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/edit_text_background"
+            android:hint="Adresse MAC"
+            android:padding="12dp"
+            android:textColor="@android:color/black" />
+
+        <!-- Bouton Ajouter -->
+        <Button
+            android:id="@+id/update_buttn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Modifier"
+            android:textSize="24sp"
+            android:background="@drawable/bouton_back"
+            android:layout_gravity="center" />
+    </LinearLayout>
+</LinearLayout>

@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    android:background="@color/skyBlue"
+   android:background="@drawable/shadow"
     android:orientation="vertical"
     android:padding="8dp">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorStart"
         android:orientation="horizontal"
         android:padding="8dp">
 
@@ -30,7 +30,13 @@
             android:text="Email"
             android:textColor="@color/whit"
             android:textSize="16sp" />
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color2"
+        android:orientation="horizontal"
+        android:padding="8dp">
         <TextView
             android:id="@+id/emailTextV"
             android:layout_width="0dp"
@@ -49,13 +55,12 @@
             android:textColor="@color/whit"
             android:textSize="16sp" />
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/color3"
         android:orientation="horizontal"
         android:padding="8dp">
-
         <TextView
             android:id="@+id/emaiTextView"
             android:layout_width="0dp"
@@ -73,6 +78,15 @@
             android:text="Arrive"
             android:textColor="@color/unselected"
             android:textSize="16sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorEnd"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+
 
         <TextView
             android:id="@+id/emilTextView"
