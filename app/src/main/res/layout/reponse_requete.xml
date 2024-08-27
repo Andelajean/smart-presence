@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -16,8 +18,9 @@
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/whit"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="24dp" />
 
+    <!-- Conteneur du formulaire -->
     <LinearLayout
         android:id="@+id/form_container"
         android:layout_width="match_parent"
@@ -27,40 +30,54 @@
         android:background="@drawable/bordure">
 
         <!-- Champ Email -->
-        <EditText
-            android:id="@+id/emailEditText"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
             android:hint="Email"
-            android:textColor="@color/blac"
-            android:background="@drawable/edit_text_background"
-            android:inputType="textEmailAddress"
-            android:minHeight="48dp"
-            android:padding="16dp" />
+            app:endIconMode="custom"
+            app:startIconDrawable="@drawable/baseline_email_24">
 
-        <!-- Champ EditText pour Arrivée -->
-        <EditText
-            android:id="@+id/editarrive"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:textColor="@color/whit"
+                android:textCursorDrawable="@color/whit" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Champ Arrivée -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:ems="10"
-            android:background="@drawable/edit_text_background"
+            android:layout_marginTop="8dp"
             android:hint="Arrivée"
-            android:textColor="@color/blac"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:padding="16dp" />
+            app:endIconMode="custom"
+            app:startIconDrawable="@drawable/baseline_lock_open_24">
 
-        <!-- Bouton Générer -->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editarrive"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/whit"
+                android:textCursorDrawable="@color/whit" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Bouton Sauvegarder -->
         <Button
             android:id="@+id/generateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="24dp"
             android:padding="16dp"
             android:background="@drawable/bouton_back"
-            android:text="Sauvegarder" />
+            android:text="Sauvegarder"
+            android:textColor="@color/whit"
+            android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>

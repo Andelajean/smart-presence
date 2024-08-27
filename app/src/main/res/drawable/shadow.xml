@@ -13,7 +13,7 @@
     <!-- Fond blanc avec bordures violettes -->
     <item android:left="0dp" android:top="0dp" android:right="0dp" android:bottom="0dp">
         <shape android:shape="rectangle">
-            <solid android:color="@android:color/white" />
+            <solid android:color="@color/gris" />
             <stroke android:width="3dp" android:color="@color/purple_background" />
             <corners android:radius="10dp" />
         </shape>

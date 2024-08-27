@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.*
@@ -67,28 +68,32 @@ class RequestAdapter(
         private fun showResponseForm(email: String) {
             // Créez une vue personnalisée pour la boîte de dialogue
             val dialogView = LayoutInflater.from(itemView.context).inflate(R.layout.reponse_requete, null)
-            val emailTextView: TextView = dialogView.findViewById(R.id.emailEditText)
-            val arriveer: TextView = dialogView.findViewById(R.id.editarrive)
+
+            // Trouver les vues correspondantes
+            val emailEditText: TextInputEditText = dialogView.findViewById(R.id.emailEditText)
+            val arriveerEditText: TextInputEditText = dialogView.findViewById(R.id.editarrive)
             val saveButton: Button = dialogView.findViewById(R.id.generateButton)
 
             // Pré-remplir le champ email
-            emailTextView.text = email
+            emailEditText.setText(email)
 
             // Créez la boîte de dialogue
-            val alertDialog = AlertDialog.Builder(context)
+            val alertDialog = AlertDialog.Builder(itemView.context)
                 .setView(dialogView)
                 .setCancelable(true)
                 .create()
 
             // Gérer le clic sur le bouton Sauvegarder
             saveButton.setOnClickListener {
-                val email = emailTextView.text.toString().trim()
-                val arrive = arriveer.text.toString().trim()
-                if (email.isNotEmpty() && arrive.isNotEmpty()) {
-                   val horaire = Horaire()
-                    horaire.modifierHeureArrive(context, email, arrive)
+                val emailInput = emailEditText.text.toString().trim()
+                val arriveInput = arriveerEditText.text.toString().trim()
+
+                if (emailInput.isNotEmpty() && arriveInput.isNotEmpty()) {
+                    // Logique de mise à jour de l'heure d'arrivée
+                    val horaire = Horaire()
+                    horaire.modifierHeureArrive(itemView.context, emailInput, arriveInput)
                 } else {
-                    Toast.makeText(context, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(itemView.context, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show()
                 }
 
                 // Fermer la boîte de dialogue

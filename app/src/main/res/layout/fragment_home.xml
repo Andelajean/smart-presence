@@ -1,27 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/whit">
+    android:layout_height="match_parent">
 
-    <!-- Background: Two overlapping triangles (commenté pour l'instant)
-    <ImageView
-        android:layout_width="450dp"
-        android:layout_height="550dp"
-        android:layout_gravity="top|start"
-        android:src="@drawable/forme_bleue"
-        android:scaleType="fitXY" />
-    -->
+    <!-- Back Button at the top -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/style_image"
+            android:contentDescription="Bouton retour"
+            android:clipToOutline="true"
+            android:id="@+id/notification"
+            android:src="@drawable/notif" />
 
+        <!-- Red dot for notifications -->
+        <TextView
+            android:id="@+id/notification_dot"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/color1"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <!-- Centered content with image and buttons -->
     <LinearLayout
-        android:layout_width="390dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:gravity="center"
-        android:layout_marginLeft="10dp"
-        android:orientation="vertical"
+        android:layout_gravity="center"
         android:background="@drawable/bordure"
+        android:orientation="vertical"
         android:padding="16dp">
 
         <!-- Image at the center -->
@@ -34,41 +51,59 @@
             android:clipToOutline="true"
             android:src="@drawable/images" />
 
-        <TextView
-            android:id="@+id/tv_welcome"
+        <!-- Welcome text -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="Bienvenue"
-            android:textColor="@color/color3"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Bienvenue,"
+                android:textColor="@color/color3"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginStart="8dp"
+                android:text="UserName"
+                android:textColor="@color/colorEnd"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <!-- Buttons at the bottom -->
         <LinearLayout
-            android:layout_width="380dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_marquer_depart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:background="@drawable/bouton_back"
-                android:text="Marquer Départ"
-                android:textColor="#000000" />
-
-            <Button
                 android:id="@+id/btn_marquer_arrive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/bouton_back"
+                android:layout_marginStart="8dp"
+                style="@style/MyButtonStyle"
                 android:text="Marquer Arrivée"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/btn_marquer_depart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Marquer Départ"
+                style="@style/MyButtonStyle"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
     </LinearLayout>

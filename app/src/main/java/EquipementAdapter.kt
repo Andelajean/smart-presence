@@ -13,6 +13,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.firestore.FirebaseFirestore
 
 class EquipementAdapter(
@@ -38,7 +39,7 @@ class EquipementAdapter(
             }
 
             replyButton.setOnClickListener {
-                showResponseForm(equi.mac,equi.name,equi.id)
+                showResponseForm(equi.mac, equi.name, equi.id)
             }
 
             itemView.setOnClickListener {
@@ -49,51 +50,80 @@ class EquipementAdapter(
         private fun deleteUser(equiId: String) {
             firestore.collection("equipments").document(equiId).delete()
                 .addOnSuccessListener {
-                    Toast.makeText(context, "Compte supprimé avec succès", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Compte supprimé avec succès", Toast.LENGTH_SHORT)
+                        .show()
                     equi = equi.filter { it.id != equiId } // Update the list
                     notifyDataSetChanged() // Notify adapter
                 }
                 .addOnFailureListener { e ->
-                    Toast.makeText(context, "Erreur lors de la suppression : ${e.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        context,
+                        "Erreur lors de la suppression : ${e.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
         }
 
-        private fun showResponseForm(mac : String ,name: String,  equiId: String) {
-            val dialogView = LayoutInflater.from(itemView.context).inflate(R.layout.modifier_equipement, null)
-            val emailTextView: TextView = dialogView.findViewById(R.id.wifi_nam)
-            val roleSpinner: TextView = dialogView.findViewById(R.id.mac_addres)
-            val saveButton: Button = dialogView.findViewById(R.id.update_buttn)
-            roleSpinner.text = mac
-            emailTextView.text = name
+        private fun showResponseForm(mac: String, name: String, equiId: String) {
+            // Inflate le layout personnalisé pour le formulaire de modification
+            val dialogView =
+                LayoutInflater.from(itemView.context).inflate(R.layout.modifier_equipement, null)
 
-            val alertDialog = AlertDialog.Builder(context)
+            // Référence aux composants du layout
+            val wifiNameEditText: TextInputEditText = dialogView.findViewById(R.id.wifi_name)
+            val macAddressEditText: TextInputEditText = dialogView.findViewById(R.id.mac_address)
+            val updateButton: Button = dialogView.findViewById(R.id.update_buttn)
+
+            // Préremplir les champs avec les valeurs actuelles
+            wifiNameEditText.setText(name)
+            macAddressEditText.setText(mac)
+
+            // Créer et afficher la boîte de dialogue
+            val alertDialog = AlertDialog.Builder(itemView.context)
                 .setView(dialogView)
                 .setCancelable(true)
                 .create()
 
-            saveButton.setOnClickListener {
-                val emailInput = emailTextView.text.toString().trim()
-                val selectedRole = roleSpinner.text.toString().trim()
+            // Définir le comportement du bouton Modifier
+            updateButton.setOnClickListener {
+                val wifiNameInput = wifiNameEditText.text.toString().trim()
+                val macAddressInput = macAddressEditText.text.toString().trim()
 
-                if (emailInput.isNotEmpty() && selectedRole.isNotEmpty()) {
+                if (wifiNameInput.isNotEmpty() && macAddressInput.isNotEmpty()) {
                     val equipment = hashMapOf(
-                        "name" to emailInput,
-                        "mac" to selectedRole
+                        "name" to wifiNameInput,
+                        "mac" to macAddressInput
                     )
 
+                    // Mettre à jour l'équipement dans Firestore
                     firestore.collection(collectionName)
                         .document(equiId)
                         .set(equipment)
                         .addOnSuccessListener {
-                            Toast.makeText(context, "Équipement mis à jour avec succès", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                itemView.context,
+                                "Équipement mis à jour avec succès",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                         .addOnFailureListener { e ->
-                            Toast.makeText(context, "Erreur lors de la mise à jour de l'équipement", Toast.LENGTH_SHORT).show()
-                            Log.w("EquipementFragment", "Erreur lors de la mise à jour de l'équipement", e)
+                            Toast.makeText(
+                                itemView.context,
+                                "Erreur lors de la mise à jour de l'équipement",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            Log.w(
+                                "EquipementFragment",
+                                "Erreur lors de la mise à jour de l'équipement",
+                                e
+                            )
                         }
-                }
-                 else {
-                    Toast.makeText(context, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(
+                        itemView.context,
+                        "Veuillez remplir tous les champs",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
                 alertDialog.dismiss()
             }
@@ -102,8 +132,7 @@ class EquipementAdapter(
         }
 
     }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.liste_equipement, parent, false)
         return UserViewHolder(view)
     }

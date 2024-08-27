@@ -9,7 +9,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorStart"
         android:orientation="horizontal"
         android:padding="8dp">
 
@@ -19,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Email"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -28,13 +27,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Email"
-            android:textColor="@color/whit"
+            android:textColor="@color/black"
             android:textSize="16sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color2"
         android:orientation="horizontal"
         android:padding="8dp">
         <TextView
@@ -43,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Date"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -52,13 +50,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Date"
-            android:textColor="@color/whit"
+            android:textColor="@color/black"
             android:textSize="16sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color3"
+
         android:orientation="horizontal"
         android:padding="8dp">
         <TextView
@@ -67,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Arrivé"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -76,13 +74,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Arrive"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="16sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorEnd"
         android:orientation="horizontal"
         android:padding="8dp">
 
@@ -94,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Dapart"
-            android:textColor="@color/whit"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -103,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Depart"
-            android:textColor="@color/whit"
+            android:textColor="@color/black"
             android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>

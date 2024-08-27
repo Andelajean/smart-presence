@@ -12,8 +12,9 @@
         android:id="@+id/logout_image"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/logout"
+        android:src="@drawable/logou"
         android:background="@drawable/style_image"
+        android:clipToOutline="true"
     android:contentDescription="Logout Image"
     android:layout_gravity="center"
     android:layout_marginBottom="24dp"/>

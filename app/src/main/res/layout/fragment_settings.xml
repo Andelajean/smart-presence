@@ -32,7 +32,7 @@
                 android:clipToOutline="true"
                 android:contentDescription="Smart Presence Logo"
                 android:scaleType="centerCrop"
-                android:src="@drawable/smart_presence" />
+                android:src="@drawable/logo" />
         </FrameLayout>
 
         <TextView
@@ -41,7 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="90dp"
             android:text="Parametre"
-            android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -67,7 +66,6 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
                 android:text="Parametre de l'Apllication"
-                android:textColor="@color/color3"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -136,7 +134,6 @@
                 android:paddingTop="16dp"
                 android:paddingBottom="8dp"
                 android:text="Parametre de Session"
-                android:textColor="@color/color3"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -243,7 +240,6 @@
                 android:paddingTop="16dp"
                 android:paddingBottom="8dp"
                 android:text="A Propos de L'Application"
-                android:textColor="@color/color3"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 

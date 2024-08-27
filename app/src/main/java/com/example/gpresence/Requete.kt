@@ -68,7 +68,8 @@ class RequestsFragment : Fragment() {
                             "detail" to detail,
                             "email" to email,
                             "name" to name,
-                            "dateTime" to dateTime
+                            "dateTime" to dateTime,
+                            "status" to "unread"
                         )
 
                         // Add a new document with a generated ID

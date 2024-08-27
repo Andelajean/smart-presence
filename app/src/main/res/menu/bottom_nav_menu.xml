@@ -15,8 +15,4 @@
         android:id="@+id/nav_requete"
         android:icon="@android:drawable/sym_action_chat"
         android:title="Requete" />
-    <item
-        android:id="@+id/nav_admin"
-        android:icon="@drawable/t_l_chargement__2__1"
-        android:title="Admin" />
 </menu>

@@ -32,7 +32,7 @@
                 android:clipToOutline="true"
                 android:contentDescription="Smart Presence Logo"
                 android:scaleType="centerCrop"
-                android:src="@drawable/smart_presence" />
+                android:src="@drawable/logo" />
         </FrameLayout>
 
         <TextView
@@ -41,7 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:text="Requete"
-            android:textColor="@color/color3"
             android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -52,7 +51,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Envoyer vos requêtes ici"
-        android:textColor="@color/color3"
         android:textSize="25sp"
         android:layout_marginTop="100dp"
         android:textStyle="bold"
@@ -64,51 +62,66 @@
     <!-- Section containing text and input fields -->
     <LinearLayout
         android:id="@+id/form_layout"
-        android:layout_width="380dp"
-        android:layout_height="310dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/bordure"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:orientation="vertical"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="16dp"
+        android:background="@drawable/bordure"
+        app:layout_constraintTop_toBottomOf="@id/request_motif_label"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/request_motif_label">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <EditText
-            android:id="@+id/request_motif"
-            android:layout_width="310dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="17dp"
-            android:background="@drawable/edit_text_background"
+        <!-- Motif Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:hint="Motif de la requête"
-            android:padding="10dp"
-            android:layout_marginStart="17dp"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
+            app:endIconMode="custom"
+            app:startIconDrawable="@drawable/baseline_email_24">
 
-        <EditText
-            android:id="@+id/request_detail"
-            android:layout_width="310dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/edit_text_background"
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/request_motif"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:textSize="24sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Détail Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:hint="Détail"
-            android:layout_marginStart="17dp"
-            android:inputType="textMultiLine"
-            android:minLines="4"
-            android:padding="12dp"
-            android:textColor="@color/black" />
+            app:endIconMode="custom"
+            app:startIconDrawable="@drawable/baseline_email_24">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/request_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minLines="4"
+                android:padding="12dp"
+                 />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Submit Button -->
         <Button
             android:id="@+id/submit_request_button"
-            android:layout_width="310dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:background="@drawable/bouton_back"
+            android:backgroundTint="@color/color3"
             android:padding="12dp"
-            android:layout_marginStart="17dp"
             android:text="Envoyer"
             android:textColor="@android:color/white" />
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

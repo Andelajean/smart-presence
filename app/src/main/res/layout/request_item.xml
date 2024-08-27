@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/color2"
         android:layout_marginBottom="8dp">
 
         <TextView
@@ -20,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Email"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
         <TextView
@@ -29,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="userEmail"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="14sp" />
     </LinearLayout>
 
@@ -38,7 +37,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/color1"
         android:layout_marginBottom="8dp">
 
         <TextView
@@ -47,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Nom"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
         <TextView
@@ -56,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="userName"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="14sp" />
     </LinearLayout>
 
@@ -65,7 +63,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/colorStart"
         android:layout_marginBottom="8dp">
 
         <TextView
@@ -74,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Motif"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
         <TextView
@@ -83,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="motifText"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="14sp" />
     </LinearLayout>
 
@@ -92,7 +89,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/colorEnd"
         android:layout_marginBottom="8dp">
 
         <TextView
@@ -101,7 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Détail"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
         <TextView
@@ -110,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="detailText"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="14sp" />
     </LinearLayout>
 
@@ -119,7 +115,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/color3"
         android:layout_marginBottom="16dp">
 
         <TextView
@@ -128,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="DateTime"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="14sp" />
 
         <TextView
@@ -137,7 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="dateTimeValue"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="14sp" />
     </LinearLayout>
 

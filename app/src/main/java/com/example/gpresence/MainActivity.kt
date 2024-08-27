@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
@@ -42,10 +43,6 @@ class MainActivity : AppCompatActivity() {
                     loadFragment(RequestsFragment())
                     true
                 }
-                R.id.nav_admin -> {
-                    loadAdmin()
-                    true
-                }
                 else -> false
             }
         }
@@ -62,10 +59,18 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    private fun loadAdmin() {
-        val intent = Intent(this, AdminActivity::class.java)
-        startActivity(intent)
+    override fun onBackPressed() {
+        // Afficher un dialogue de confirmation
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Voulez-vous vraiment quitter l'application?")
+            .setCancelable(false)
+            .setPositiveButton("Oui") { dialog, id ->
+                super.onBackPressed() // Appeler la méthode par défaut
+            }
+            .setNegativeButton("Non") { dialog, id ->
+                dialog.dismiss() // Ferme le dialogue et retourne à l'application
+            }
+        val alert = builder.create()
+        alert.show()
     }
-
-
 }

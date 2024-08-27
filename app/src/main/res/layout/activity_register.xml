@@ -5,58 +5,25 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whit"
     tools:context=".RegisterActivity">
 
-    <!-- First Triangle -->
-    <!--
-    <ImageView
-        android:id="@+id/top_triangle"
-        android:layout_width="430dp"
-        android:layout_height="650dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/forme_bleue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintWidth_percent="0.5" />
-    -->
+    <!-- Logo Image -->
 
-    <!-- Second Triangle -->
-    <!--
-    <ImageView
-        android:id="@+id/bottom_triangle"
-        android:layout_width="450dp"
-        android:layout_height="450dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/former_orange"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.5"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.985"
-        app:layout_constraintWidth_percent="0.5" />
-    -->
+    <!-- Page Title -->
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/style_image"
         android:clipToOutline="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/smart_presence"
+        android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.5" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/login_page_title"
@@ -65,90 +32,109 @@
         android:layout_marginTop="28dp"
         android:gravity="center"
         android:text="Création de Compte"
-        android:textColor="@color/color3"
+
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo" />
 
+    <!-- Form Layout -->
     <LinearLayout
         android:id="@+id/top_layout"
-        android:layout_width="390dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_margin="16dp"
         android:background="@drawable/bordure"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_page_title">
 
-        <EditText
-            android:id="@+id/username"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/edit_text_background"
-            android:hint="Username"
-            android:padding="12dp"
-            android:textColor="@color/black" />
+        <!-- Username Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Nom"
+            app:endIconMode="custom"
+            app:startIconDrawable="@drawable/baseline_manage_accounts_24">
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/edit_text_background"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Email Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:padding="12dp"
-            android:textColor="@color/black" />
+            app:endIconMode="custom"
+            app:startIconDrawable="@drawable/baseline_email_24">
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/edit_text_background"
-            android:hint="Password"
-            android:layout_marginStart="5dp"
-            android:inputType="textPassword"
-            android:padding="12dp"
-            android:textColor="@color/black" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                 />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/confirm_password"
-            android:layout_width="350dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/edit_text_background"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:padding="12dp"
-            android:textColor="@color/black" />
+        <!-- Password Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Mot de Passe"
+            app:endIconMode="custom"
+            app:startIconDrawable="@drawable/baseline_lock_open_24">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                 />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Confirm Password Field -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Confirmer le MP"
+            app:endIconMode="custom"
+            app:startIconDrawable="@drawable/baseline_lock_reset_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:padding="12dp"
+               />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Register Button -->
         <Button
             android:id="@+id/register_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
             android:background="@drawable/bouton_back"
             android:padding="12dp"
             android:text="Register"
             android:textColor="@color/white" />
 
+        <!-- Already Have Account Text -->
         <TextView
             android:id="@+id/already_have_account"
             android:layout_width="match_parent"
@@ -156,12 +142,10 @@
             android:layout_marginTop="8dp"
             android:background="@android:color/transparent"
             android:clickable="true"
-            android:contentDescription="Already have an account"
             android:focusable="true"
             android:gravity="center"
             android:padding="16dp"
             android:text="Vous avez deja un Compte??"
-            android:textColor="@color/color3"
             android:textSize="18sp"
             android:textStyle="bold" />
     </LinearLayout>

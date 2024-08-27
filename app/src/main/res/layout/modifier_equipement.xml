@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
     android:background="@color/color3"
     android:gravity="center">
-
 
     <LinearLayout
         android:layout_width="350dp"
@@ -17,28 +18,42 @@
         android:orientation="vertical">
 
         <!-- Champ Nom du Wifi -->
-
-        <EditText
-            android:id="@+id/wifi_nam"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_background"
-            android:hint="Nom du Wifi"
-            android:padding="12dp"
-            android:textColor="@android:color/black" />
+            android:layout_marginTop="8dp"
+            android:hint="Nom du wifi"
+            app:endIconMode="custom"
+            app:startIconDrawable="@drawable/baseline_info_24">
 
-        <!-- Champ Adresse MAC -->
-        <EditText
-            android:id="@+id/mac_addres"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/wifi_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/whit" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Champ Mot de Passe -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/edit_text_background"
-            android:hint="Adresse MAC"
-            android:padding="12dp"
-            android:textColor="@android:color/black" />
+            android:layout_marginTop="8dp"
+            android:hint="Adresse Mac"
+            app:endIconMode="custom"
+            app:startIconDrawable="@drawable/baseline_info_24">
 
-        <!-- Bouton Ajouter -->
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mac_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/whit" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Bouton Modifier -->
         <Button
             android:id="@+id/update_buttn"
             android:layout_width="wrap_content"

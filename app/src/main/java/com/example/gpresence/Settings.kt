@@ -82,8 +82,8 @@ class SettingsFragment : Fragment() {
             .setCancelable(true)
             .setTitle("Changer le Thème")
             .setNegativeButton("Annuler") { dialog, _ -> dialog.dismiss() }
-            .setPositiveButton("Sombre") { _, _ -> changeTheme(THEME_DARK) }
             .setNeutralButton("Clair") { _, _ -> changeTheme(THEME_LIGHT) }
+            .setPositiveButton("Sombre") { _, _ -> changeTheme(THEME_DARK) }
             .show()
     }
 
