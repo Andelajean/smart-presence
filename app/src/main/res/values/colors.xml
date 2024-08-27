@@ -12,7 +12,7 @@
     <color name="blac">#000000</color>
     <color name="skyBlue">#87CEEB</color>
     <color name="colorStart">#FF5722</color> <!-- Couleur de début -->
-    <color name="colorEnd">#FFC107</color> <!-- Couleur de fin -->
+    <color name="colorEnd">#FF9800</color> <!-- Couleur de fin -->
     <color name="color1">#FF0000</color>
     <color name="color2">#00FF00</color>
     <color name="color3">#0000FF</color>
@@ -22,4 +22,6 @@
     <color name="gris">#BABABA</color>
     <color name="purple_background">#C46AD2</color>
     <color name="selected_background">#D3D3D3</color>
+    <color name="background">#121212</color>
+    <color name="textColor">#FFFFFF</color>
 </resources>

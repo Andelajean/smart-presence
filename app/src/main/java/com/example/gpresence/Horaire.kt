@@ -39,7 +39,7 @@ class Horaire {
             }
 
             // Display WiFi SSID and MAC address
-            Toast.makeText(context, "Nom du WiFi : $wifiSSID\nAdresse MAC : $currentWifiMacAddress", Toast.LENGTH_LONG).show()
+           // Toast.makeText(context, "Nom du WiFi : $wifiSSID\nAdresse MAC : $currentWifiMacAddress", Toast.LENGTH_LONG).show()
 
             // Vérifiez si l'adresse MAC est enregistrée dans la collection 'equipement'
             val db = FirebaseFirestore.getInstance()
@@ -48,7 +48,7 @@ class Horaire {
                 .get()
                 .addOnSuccessListener { documents ->
                     if (!documents.isEmpty) {
-                        Toast.makeText(context, "Vous êtes connecté au WiFi de l'entreprise", Toast.LENGTH_LONG).show()
+                        //Toast.makeText(context, "Vous êtes connecté au WiFi de l'entreprise", Toast.LENGTH_LONG).show()
                         verifierEtMarquerArrive(context)
                     } else {
                         Toast.makeText(context, "Vous n'êtes pas connecté au WiFi de l'entreprise", Toast.LENGTH_LONG).show()
@@ -84,7 +84,7 @@ class Horaire {
             }
 
             // Display WiFi SSID and MAC address
-            Toast.makeText(context, "Nom du WiFi : $wifiSSID\nAdresse MAC : $currentWifiMacAddress", Toast.LENGTH_LONG).show()
+           // Toast.makeText(context, "Nom du WiFi : $wifiSSID\nAdresse MAC : $currentWifiMacAddress", Toast.LENGTH_LONG).show()
 
             // Vérifiez si l'adresse MAC est enregistrée dans la collection 'equipement'
             val db = FirebaseFirestore.getInstance()
@@ -93,7 +93,7 @@ class Horaire {
                 .get()
                 .addOnSuccessListener { documents ->
                     if (!documents.isEmpty) {
-                        Toast.makeText(context, "Vous êtes connecté au WiFi de l'entreprise", Toast.LENGTH_LONG).show()
+                       // Toast.makeText(context, "Vous êtes connecté au WiFi de l'entreprise", Toast.LENGTH_LONG).show()
                         marquerDepart(context)
                     } else {
                         Toast.makeText(context, "Vous n'êtes pas connecté au WiFi de l'entreprise", Toast.LENGTH_LONG).show()

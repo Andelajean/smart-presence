@@ -3,10 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    android:background="@color/skyBlue"
+   android:background="@drawable/shadow"
     android:orientation="vertical"
     android:padding="8dp">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Email"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -28,16 +27,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Email"
-            android:textColor="@color/whit"
+            android:textColor="@color/black"
             android:textSize="16sp" />
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
         <TextView
             android:id="@+id/emailTextV"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Date"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -46,23 +50,22 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Date"
-            android:textColor="@color/whit"
+            android:textColor="@color/black"
             android:textSize="16sp" />
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:orientation="horizontal"
         android:padding="8dp">
-
         <TextView
             android:id="@+id/emaiTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Arrivé"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -71,8 +74,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Arrive"
-            android:textColor="@color/unselected"
+            android:textColor="@color/black"
             android:textSize="16sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+
 
         <TextView
             android:id="@+id/emilTextView"
@@ -80,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Dapart"
-            android:textColor="@color/whit"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -89,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Depart"
-            android:textColor="@color/whit"
+            android:textColor="@color/black"
             android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>

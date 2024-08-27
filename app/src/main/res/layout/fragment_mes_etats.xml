@@ -5,9 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".MesEtats">
 
+    <!-- ImageView before RecyclerView -->
+    <ImageView
+        android:id="@+id/header_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="menu"
+        android:scaleType="centerCrop"
+        android:src="@drawable/baseline_menu_24" />
+
+    <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/whit" />
+        android:layout_marginTop="50dp"/>
+
 </FrameLayout>

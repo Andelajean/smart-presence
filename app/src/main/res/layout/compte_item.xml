@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shadow"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Alignement Email et request_email -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/email_lab"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Email"
+            android:textColor="@color/unselected"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/compte_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="userEmail"
+            android:textColor="@color/unselected"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Alignement Name et request_name -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/name_labe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nom"
+            android:textColor="@color/unselected"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/compte_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="userName"
+            android:textColor="@color/unselected"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Alignement Motif et motif_text_view -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/motif_labe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Telephone"
+            android:textColor="@color/unselected"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/telephone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="telephone"
+            android:textColor="@color/unselected"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Alignement Détail et detail_text_view -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/detail_labe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Role"
+            android:textColor="@color/unselected"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/role"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Role"
+            android:textColor="@color/unselected"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Boutons d'action (Supprimer et Répondre) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/blac"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/delte_butto"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@null"
+            android:contentDescription="Supprimer"
+            android:padding="8dp"
+            android:layout_marginRight="150dp"
+            android:src="@drawable/baseline_delete_24" />
+
+        <ImageButton
+            android:id="@+id/repl_butto"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@null"
+            android:contentDescription="Répondre"
+            android:padding="10dp"
+            android:src="@drawable/baseline_email_24" />
+    </LinearLayout>
+
+</LinearLayout>

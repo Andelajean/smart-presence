@@ -1,12 +1,15 @@
 package com.example.gpresence
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
@@ -14,6 +17,8 @@ import com.google.firebase.auth.FirebaseAuthException
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import android.provider.Settings.Secure
+
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -24,6 +29,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var emailField: EditText
     private lateinit var passwordField: EditText
     private lateinit var confirmPasswordField: EditText
+
     //private lateinit var roleField: EditText
     //private lateinit var codeField: EditText
     private lateinit var registerButton: Button
@@ -31,6 +37,14 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val sharedPreferences =
+            getSharedPreferences(SettingsFragment.PREFS_NAME, Context.MODE_PRIVATE)
+        val theme =
+            sharedPreferences.getString(SettingsFragment.KEY_THEME, SettingsFragment.THEME_LIGHT)
+        AppCompatDelegate.setDefaultNightMode(
+            if (theme == SettingsFragment.THEME_DARK) AppCompatDelegate.MODE_NIGHT_YES
+            else AppCompatDelegate.MODE_NIGHT_NO
+        )
         setContentView(R.layout.activity_register)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -65,13 +79,13 @@ class RegisterActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
     private fun registerUse() {
         val username = usernameField.text.toString().trim()
         val email = emailField.text.toString().trim()
         val password = passwordField.text.toString().trim()
         val confirmPassword = confirmPasswordField.text.toString().trim()
         val role = "user"
-       // val code = codeField.text.toString().trim()
 
         if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || role.isEmpty()) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
@@ -83,21 +97,37 @@ class RegisterActivity : AppCompatActivity() {
             return
         }
 
+        // Récupérer l'Android ID
+        val code = Secure.getString(contentResolver, Secure.ANDROID_ID)
+
+        // Enregistrer l'utilisateur avec l'Android ID
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
                     if (user != null) {
-                        val userData = RegisterClass(username, email, password, confirmPassword, role)
+                        val userData = RegisterClass(
+                            username,
+                            email,
+                            password,
+                            confirmPassword,
+                            role,
+                            code
+                        )
                         firestore.collection("users").document(user.uid).set(userData)
                             .addOnSuccessListener {
-                                Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show()
-                                clearFom()
+                                Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT)
+                                    .show()
+                                clearForm()
                                 val intent = Intent(this, MainActivity::class.java)
                                 startActivity(intent)
                             }
                             .addOnFailureListener { e ->
-                                Toast.makeText(this, "Database error: ${e.message}", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this,
+                                    "Database error: ${e.message}",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                     }
                 } else {
@@ -105,27 +135,58 @@ class RegisterActivity : AppCompatActivity() {
                     if (exception is FirebaseAuthException) {
                         when (exception.errorCode) {
                             "ERROR_INVALID_EMAIL" -> {
-                                Toast.makeText(this, "The email address is badly formatted.", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this,
+                                    "The email address is badly formatted.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
+
                             "ERROR_EMAIL_ALREADY_IN_USE" -> {
-                                Toast.makeText(this, "The email address is already in use by another account.", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this,
+                                    "The email address is already in use by another account.",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
+
                             else -> {
-                                Toast.makeText(this, "Authentication failed: ${exception.message}", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this,
+                                    "Authentication failed: ${exception.message}",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
                     } else {
-                        Toast.makeText(this, "Authentication failed: ${exception?.message}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this,
+                            "Authentication failed: ${exception?.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
             }
     }
-    private fun clearFom(){
+
+    private fun clearForm() {
         emailField.text.clear()
         usernameField.text.clear()
         passwordField.text.clear()
         confirmPasswordField.text.clear()
-
     }
 
+    override fun onBackPressed() {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Voulez-vous vraiment quitter l'application?")
+            .setCancelable(false)
+            .setPositiveButton("Oui") { dialog, id ->
+                super.onBackPressed()
+            }
+            .setNegativeButton("Non") { dialog, id ->
+                dialog.dismiss()
+            }
+        val alert = builder.create()
+        alert.show()
+    }
 }

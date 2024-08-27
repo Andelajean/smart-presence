@@ -2,54 +2,166 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/skyBlue"
+    android:background="@drawable/shadow"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/request_email"
-        android:layout_width="wrap_content"
+    <!-- Alignement Email et request_email -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email"
-        android:textColor="@color/unselected"
-        android:textSize="14sp" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
 
-    <TextView
-        android:id="@+id/request_name"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/email_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Email"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/request_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="userEmail"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Alignement Name et request_name -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name"
-        android:textColor="@color/unselected"
-        android:textSize="14sp" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
 
-    <TextView
-        android:id="@+id/motif_text_view"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/name_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nom"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/request_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="userName"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Alignement Motif et motif_text_view -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Motif"
-        android:textColor="@color/unselected" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
 
-    <TextView
-        android:id="@+id/detail_text_view"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/motif_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Motif"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/motif_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="motifText"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Alignement Détail et detail_text_view -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Détail"
-        android:textColor="@color/unselected" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
 
+        <TextView
+            android:id="@+id/detail_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Détail"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
-    <TextView
-        android:id="@+id/request_dateTime"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/detail_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="detailText"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Alignement DateTime et request_dateTime -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DateTime"
-        android:textColor="@color/unselected"
-        android:textSize="14sp" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
 
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/dateTime_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="DateTime"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/request_dateTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="dateTimeValue"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Boutons d'action (Supprimer et Répondre) -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/color3"
-        android:text="Delete" />
+        android:orientation="horizontal"
+        android:background="@color/blac"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/delete_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@null"
+            android:contentDescription="Supprimer"
+            android:padding="8dp"
+            android:layout_marginRight="150dp"
+            android:src="@drawable/baseline_delete_24" />
+
+        <ImageButton
+            android:id="@+id/reply_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@null"
+            android:contentDescription="Répondre"
+            android:padding="10dp"
+            android:src="@drawable/baseline_email_24" />
+    </LinearLayout>
 
 </LinearLayout>

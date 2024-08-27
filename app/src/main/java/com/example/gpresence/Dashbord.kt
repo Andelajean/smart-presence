@@ -20,8 +20,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class DashboardFragment : Fragment() {
 
-    private val companyWifiMacAddress = "00:11:22:33:44:55" // Remplacez par l'adresse MAC de votre WiFi d'entreprise
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

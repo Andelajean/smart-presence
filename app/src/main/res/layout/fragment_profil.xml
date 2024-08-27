@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".ProfileFragment">
 
     <!-- Top Layout with Fragment Name and Logo -->
@@ -32,7 +31,7 @@
                 android:clipToOutline="true"
                 android:contentDescription="Smart Presence Logo"
                 android:scaleType="centerCrop"
-                android:src="@drawable/smart_presence" />
+                android:src="@drawable/logo" />
         </FrameLayout>
 
         <TextView
@@ -42,7 +41,6 @@
             android:layout_gravity="left"
             android:layout_marginStart="150dp"
             android:text="Profil"
-            android:textColor="@color/color3"
             android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -78,50 +76,74 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <!-- Username Field -->
-        <EditText
-            android:id="@+id/username"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/edit_text_background"
             android:hint="Username"
-            android:padding="12dp"
-            android:textColor="@color/black" />
+            app:endIconMode="custom"
+            app:startIconDrawable="@drawable/baseline_manage_accounts_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Email Field -->
-        <EditText
-            android:id="@+id/email"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/edit_text_background"
             android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:padding="12dp"
-            android:textColor="@color/black" />
+            app:endIconMode="custom"
+            app:startIconDrawable="@drawable/baseline_email_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+              />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Telephone Field -->
-        <EditText
-            android:id="@+id/telephone"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/edit_text_background"
             android:hint="Telephone"
-            android:inputType="phone"
-            android:padding="12dp"
-            android:textColor="@color/black" />
+            app:endIconMode="custom"
+            app:startIconDrawable="@drawable/baseline_info_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/telephone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:padding="12dp"
+                 />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Role Field -->
-        <TextView
-            android:id="@+id/role"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@drawable/edit_text_background"
             android:hint="Role"
-            android:padding="12dp"
-            android:textColor="@color/black" />
+            app:endIconMode="custom"
+            app:startIconDrawable="@drawable/baseline_settings_24">
+
+            <TextView
+                android:id="@+id/role"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Update Button -->
         <Button
@@ -142,7 +164,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Mettez à Jour votre Profil ici"
-        android:textColor="@color/color3"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

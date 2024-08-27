@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color3"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:padding="24dp"
+        android:background="@drawable/bordure"
+        android:orientation="vertical">
+
+        <!-- Champ Nom du Wifi -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Nom du wifi"
+            app:endIconMode="none"
+            app:startIconDrawable="@drawable/baseline_info_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/wifi_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/whit" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Champ Mot de Passe -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Adresse Mac"
+            app:endIconMode="none"
+            app:startIconDrawable="@drawable/baseline_info_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/mac_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:padding="12dp"
+                android:textColor="@color/whit" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Bouton Ajouter -->
+        <Button
+            android:id="@+id/ajout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Ajouter"
+            android:textSize="24sp"
+            android:background="@drawable/bouton_back"
+            android:layout_gravity="center" />
+    </LinearLayout>
+</LinearLayout>

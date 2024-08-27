@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Thème clair par défaut -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="android:clipToOutline">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="background">@color/blac</item>
+        <item name="android:textColor">@color/blac</item>
+    </style>
+
+    <!-- Thème clair personnalisé -->
+    <style name="AppTheme_Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="background">@color/blac</item>
+        <item name="android:textColor">@color/blac</item>
+    </style>
+    <style name="MyButtonStyle">
+        <item name="android:background">@drawable/bouton_back</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 </resources>
