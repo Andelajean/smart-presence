@@ -57,8 +57,9 @@ class RequestAdapter(
             firestore.collection("requests").document(requestId).delete()
                 .addOnSuccessListener {
                     Toast.makeText(context, "Requête supprimée avec succès", Toast.LENGTH_SHORT).show()
-                    requests = requests.filter { it.id == requestId }
                     notifyDataSetChanged()
+                    requests = requests.filter { it.id == requestId }
+
                 }
                 .addOnFailureListener { e ->
                     Toast.makeText(context, "Erreur lors de la suppression : ${e.message}", Toast.LENGTH_LONG).show()

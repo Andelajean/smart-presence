@@ -6,7 +6,11 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.net.wifi.WifiManager
 import android.os.Build
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.google.firebase.auth.FirebaseAuth
@@ -63,7 +67,7 @@ class Horaire {
         }
     }
 
-   public  fun depart(context: Context) {
+   fun depart(context: Context) {
         val wifiManager = context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
         val wifiInfo = wifiManager.connectionInfo
 
@@ -164,7 +168,6 @@ class Horaire {
             Toast.makeText(context, "Utilisateur non connecté", Toast.LENGTH_SHORT).show()
             return
         }
-
         val documentId = "$email-$date"
         val documentRef = db.collection("horaire").document(documentId)
 

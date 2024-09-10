@@ -22,8 +22,8 @@
         <!-- Red dot for notifications -->
         <TextView
             android:id="@+id/notification_dot"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="5dp"

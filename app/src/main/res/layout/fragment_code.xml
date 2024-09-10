@@ -32,7 +32,7 @@
                 android:clipToOutline="true"
                 android:contentDescription="App Logo"
                 android:scaleType="centerCrop"
-                android:src="@drawable/logo" />
+                android:src="@drawable/logofinal" />
         </FrameLayout>
 
         <TextView

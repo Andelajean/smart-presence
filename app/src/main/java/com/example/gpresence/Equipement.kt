@@ -24,8 +24,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 
 class Equipement : Fragment() {
-
-    private val firestore = FirebaseFirestore.getInstance()
+   var firestore = FirebaseFirestore.getInstance()
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: EquipementAdapter
     private lateinit var detect: Button
@@ -105,7 +104,7 @@ class Equipement : Fragment() {
         alertDialog.show()
     }
 
-    private fun detectWifiNetworks() {
+    fun detectWifiNetworks() {
         // Check if permissions are granted
         if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
             ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -166,20 +165,37 @@ class Equipement : Fragment() {
     }
 
 
-    private fun addEquipment(name: String, mac: String) {
-        val equipment = hashMapOf(
-            "name" to name,
-            "mac" to mac
-        )
-
+    fun addEquipment(name: String, mac: String) {
+        // Vérifier si l'équipement existe déjà
         firestore.collection("equipments")
-            .add(equipment)
-            .addOnSuccessListener {
-                Toast.makeText(context, "Équipement ajouté avec succès", Toast.LENGTH_SHORT).show()
+            .whereEqualTo("mac", mac)
+            .get()
+            .addOnSuccessListener { documents ->
+                if (documents.isEmpty) {
+                    // L'équipement n'existe pas, on l'ajoute
+                    val equipment = hashMapOf(
+                        "name" to name,
+                        "mac" to mac
+                    )
+
+                    firestore.collection("equipments")
+                        .add(equipment)
+                        .addOnSuccessListener {
+                            Toast.makeText(context, "Équipement ajouté avec succès", Toast.LENGTH_SHORT).show()
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(context, "Erreur lors de l'ajout de l'équipement", Toast.LENGTH_SHORT).show()
+                            Log.w("EquipementFragment", "Erreur lors de l'ajout de l'équipement", e)
+                        }
+                } else {
+                    // L'équipement existe déjà
+                    Toast.makeText(context, "L'équipement existe déjà", Toast.LENGTH_SHORT).show()
+                }
             }
             .addOnFailureListener { e ->
-                Toast.makeText(context, "Erreur lors de l'ajout de l'équipement", Toast.LENGTH_SHORT).show()
-                Log.w("EquipementFragment", "Erreur lors de l'ajout de l'équipement", e)
+                Toast.makeText(context, "Erreur lors de la vérification de l'équipement", Toast.LENGTH_SHORT).show()
+                Log.w("EquipementFragment", "Erreur lors de la vérification de l'équipement", e)
             }
     }
+
 }
