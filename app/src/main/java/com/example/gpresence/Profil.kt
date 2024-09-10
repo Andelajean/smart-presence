@@ -145,7 +145,7 @@ class ProfileFragment : Fragment() {
             }
     }
 
-    private fun loadUserProfile() {
+    fun loadUserProfile() {
         val userDoc = firestore.collection("users").document(auth.currentUser!!.uid)
         userDoc.get()
             .addOnSuccessListener { document ->

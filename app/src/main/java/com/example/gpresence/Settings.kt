@@ -21,13 +21,13 @@ import java.util.Locale
 
 class SettingsFragment : Fragment() {
     companion object {
-        public const val PREFS_NAME = "theme_prefs"
-        public const val KEY_THEME = "theme"
-        public const val THEME_LIGHT = "light"
-        public const val THEME_DARK = "dark"
+        const val PREFS_NAME = "theme_prefs"
+        const val KEY_THEME = "theme"
+         const val THEME_LIGHT = "light"
+         const val THEME_DARK = "dark"
     }
 
-    private lateinit var auth: FirebaseAuth
+    lateinit var auth: FirebaseAuth
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
@@ -72,7 +72,7 @@ class SettingsFragment : Fragment() {
         return view
     }
 
-    private fun showChangeThemeDialog() {
+     fun showChangeThemeDialog() {
         // Inflate the custom layout for the dialog
         val dialogView = LayoutInflater.from(context).inflate(R.layout.change_theme, null)
 
@@ -87,7 +87,7 @@ class SettingsFragment : Fragment() {
             .show()
     }
 
-    private fun changeTheme(theme: String) {
+     fun changeTheme(theme: String) {
         val editor = sharedPreferences.edit()
         editor.putString(KEY_THEME, theme)
         editor.apply()
@@ -107,7 +107,7 @@ class SettingsFragment : Fragment() {
         applyTheme()
     }
 
-    private fun applyTheme() {
+    fun applyTheme() {
         val theme = sharedPreferences.getString(KEY_THEME, THEME_LIGHT)
         AppCompatDelegate.setDefaultNightMode(
             if (theme == THEME_DARK) AppCompatDelegate.MODE_NIGHT_YES
@@ -115,7 +115,7 @@ class SettingsFragment : Fragment() {
         )
     }
 
-    private fun showResetPasswordDialog() {
+   fun showResetPasswordDialog() {
         // Inflate the custom layout for the dialog
         val dialogView = LayoutInflater.from(context).inflate(R.layout.reset_password, null)
         val emailEditText = dialogView.findViewById<EditText>(R.id.email)
@@ -144,7 +144,7 @@ class SettingsFragment : Fragment() {
         alertDialog.show()
     }
 
-    private fun showLogoutDialog() {
+     fun showLogoutDialog() {
         // Inflate the custom layout for the dialog
         val dialogView = LayoutInflater.from(context).inflate(R.layout.logout, null)
 
@@ -178,7 +178,7 @@ class SettingsFragment : Fragment() {
         alertDialog.show()
     }
 
-    private fun showLanguageSelectorDialog() {
+ fun showLanguageSelectorDialog() {
         val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.application_language, null)
         val englishOption = dialogView.findViewById<LinearLayout>(R.id.english_option)
         val frenchOption = dialogView.findViewById<LinearLayout>(R.id.french_option)
@@ -212,7 +212,7 @@ class SettingsFragment : Fragment() {
         dialog.show()
     }
 
-    private fun setLocale(languageCode: String) {
+    fun setLocale(languageCode: String) {
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
         val config = Configuration()
@@ -225,7 +225,7 @@ class SettingsFragment : Fragment() {
         startActivity(intent)
     }
 
-    private fun showCreditsDialog() {
+     fun showCreditsDialog() {
         val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.credit, null)
         val dialog = AlertDialog.Builder(requireContext())
             .setView(dialogView)
@@ -238,7 +238,7 @@ class SettingsFragment : Fragment() {
         dialog.show()
     }
 
-    private fun showAboutAppDialog() {
+     fun showAboutAppDialog() {
         val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.aboutapp, null)
         val dialog = AlertDialog.Builder(requireContext())
             .setView(dialogView)

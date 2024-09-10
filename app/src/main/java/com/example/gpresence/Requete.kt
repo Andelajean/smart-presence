@@ -17,11 +17,11 @@ import java.util.*
 
 class RequestsFragment : Fragment() {
 
-    private lateinit var requestMotif: EditText
-    private lateinit var requestDetail: EditText
+    lateinit var requestMotif: EditText
+    lateinit var requestDetail: EditText
     private lateinit var submitButton: Button
-    private lateinit var firestore: FirebaseFirestore
-    private lateinit var auth: FirebaseAuth
+    lateinit var firestore: FirebaseFirestore
+    lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,7 +46,7 @@ class RequestsFragment : Fragment() {
         return view
     }
 
-    private fun submitRequest() {
+    fun submitRequest() {
         val motif = requestMotif.text.toString().trim()
         val detail = requestDetail.text.toString().trim()
         val user = auth.currentUser

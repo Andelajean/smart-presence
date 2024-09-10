@@ -18,7 +18,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -41,7 +40,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -58,15 +56,16 @@ dependencies {
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.animation.graphics.android)
+    implementation(libs.androidx.fragment.testing)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
     // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
     implementation("com.google.firebase:firebase-storage")
-    // Add the dependency for the Firebase Authentication library
-    // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-auth")
+
     // Dépendance pour Glide
     implementation("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
@@ -74,5 +73,15 @@ dependencies {
     // Dépendance pour Picasso
     implementation("com.squareup.picasso:picasso:2.71828")
 
+    // Ajout des dépendances pour les tests unitaires
+    testImplementation("org.mockito:mockito-core:5.1.1") // Pour mocker les dépendances
+    testImplementation("org.robolectric:robolectric:4.9.1") // Pour simuler un environnement Android
 
+    // Pour les tests d'Android
+    androidTestImplementation("androidx.test:runner:1.5.2")
+    androidTestImplementation("androidx.test:rules:1.5.0")
+    androidTestImplementation("org.mockito:mockito-android:5.1.1") // Pour mocker sur Android
+
+    // Kotlin Coroutines pour les tests
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
 }

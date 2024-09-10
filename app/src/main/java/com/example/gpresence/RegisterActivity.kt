@@ -3,6 +3,8 @@ package com.example.gpresence
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -18,6 +20,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import android.provider.Settings.Secure
+import android.view.View
+import android.widget.ProgressBar
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -88,14 +92,32 @@ class RegisterActivity : AppCompatActivity() {
         val role = "user"
 
         if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || role.isEmpty()) {
-            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show()
             return
         }
 
         if (password != confirmPassword) {
-            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "les mots de passe sont differents", Toast.LENGTH_SHORT).show()
             return
         }
+        if (password.length < 8) {
+            Toast.makeText(this, "le mot de passe doit contenir au moins 8 caracteres", Toast.LENGTH_SHORT).show()
+            return
+        }
+        // Afficher le ProgressBar
+        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
+        progressBar.visibility = View.VISIBLE
+
+        // Simuler une tâche en arrière-plan
+        Handler(Looper.getMainLooper()).postDelayed({
+            // Masquer le ProgressBar après l'enregistrement
+            progressBar.visibility = View.GONE
+
+            // Logique d'enregistrement terminé
+            //Toast.makeText(this, "User registered successfully", Toast.LENGTH_SHORT).show()
+
+        }, 3000) // Simule une tâche qui prend 3 secondes
+
 
         // Récupérer l'Android ID
         val code = Secure.getString(contentResolver, Secure.ANDROID_ID)
@@ -116,7 +138,7 @@ class RegisterActivity : AppCompatActivity() {
                         )
                         firestore.collection("users").document(user.uid).set(userData)
                             .addOnSuccessListener {
-                                Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT)
+                                Toast.makeText(this, "Compte créer avec succes", Toast.LENGTH_SHORT)
                                     .show()
                                 clearForm()
                                 val intent = Intent(this, MainActivity::class.java)
@@ -145,7 +167,7 @@ class RegisterActivity : AppCompatActivity() {
                             "ERROR_EMAIL_ALREADY_IN_USE" -> {
                                 Toast.makeText(
                                     this,
-                                    "The email address is already in use by another account.",
+                                    "Cette adresse email existe deja.",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }

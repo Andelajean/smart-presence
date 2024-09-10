@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -17,6 +19,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import android.provider.Settings.Secure
+import android.view.View
+import android.widget.ProgressBar
 
 class LoginActivity : AppCompatActivity() {
 
@@ -73,7 +77,18 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             return
         }
+        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
+        progressBar.visibility = View.VISIBLE
 
+        // Simuler une tâche en arrière-plan
+        Handler(Looper.getMainLooper()).postDelayed({
+            // Masquer le ProgressBar après l'enregistrement
+            progressBar.visibility = View.GONE
+
+            // Logique d'enregistrement terminé
+          //  Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
+
+        }, 3000) // Simule une tâche qui prend 3 secondes
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -148,6 +163,7 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             }
+
     }
 
     private fun clearForm(){
