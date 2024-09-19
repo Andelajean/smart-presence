@@ -3,28 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color3"
+    android:background="@color/skyBlue"
     android:padding="16dp">
 
     <!-- Conteneur centré et agrandi -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="40dp"
+        android:layout_centerInParent="true"
         android:background="@drawable/bordure"
-        android:layout_centerInParent="true">
+        android:orientation="vertical"
+        android:padding="40dp">
 
         <!-- Titre -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Attribuez les rôles ici"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="32dp" />
+            android:layout_marginBottom="32dp"
+            android:text="Attribuez les rôles ici"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <!-- Champ Email agrandi -->
         <com.google.android.material.textfield.TextInputLayout
@@ -49,23 +49,23 @@
             android:id="@+id/roleSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_background"
             android:padding="16dp"
             android:textColor="@color/black"
-            android:textSize="18sp"
-            android:background="@drawable/edit_text_background"
-            android:layout_marginTop="20dp" />
+            android:textSize="18sp" />
 
         <!-- Bouton Sauvegarder agrandi -->
         <Button
             android:id="@+id/saveButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sauvegarder"
-            android:textSize="18sp"
             android:layout_marginTop="28dp"
             android:background="@drawable/bouton_back"
+            android:padding="16dp"
+            android:text="Sauvegarder"
             android:textColor="@android:color/white"
-            android:padding="16dp" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 

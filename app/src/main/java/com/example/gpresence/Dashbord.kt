@@ -34,7 +34,7 @@ class DashboardFragment : Fragment() {
         }*/
 
         val tabLayout = view.findViewById<TabLayout>(R.id.tab_layout)
-        val viewPager = view.findViewById<ViewPager2>(R.id.view_pager)
+        val viewPager = view.findViewById<ViewPager2>(R.id.view_page)
 
         viewPager.adapter = object : FragmentStateAdapter(this) {
             override fun getItemCount(): Int = 2

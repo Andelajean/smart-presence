@@ -105,62 +105,72 @@ class Equipement : Fragment() {
     }
 
     fun detectWifiNetworks() {
-        // Check if permissions are granted
+        // Vérifier si les permissions sont accordées
         if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
             ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // Request permissions
+            // Demander les permissions
             ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION), 1)
             return
         }
 
-        // Get the WifiManager
+        // Obtenir le WifiManager
         val wifiManager = requireContext().applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+
+        // Récupérer les informations du WiFi connecté (si connecté)
+        val currentWifiInfo = wifiManager.connectionInfo
+        val connectedWifiName = currentWifiInfo.ssid?.replace("\"", "") ?: "" // Remplacer les guillemets autour du SSID
+        val connectedMacAddress = currentWifiInfo.bssid ?: "" // Adresse MAC du point d'accès
+
+        // Si aucun réseau WiFi n'est connecté
+        if (connectedWifiName.isEmpty() || connectedMacAddress.isEmpty() || connectedWifiName == "<unknown ssid>") {
+            // Afficher un message indiquant qu'aucun réseau n'est détecté
+            Toast.makeText(context, "Aucun réseau WiFi détecté", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Scanner les réseaux WiFi environnants (non connecté)
         val wifiScanResults = wifiManager.scanResults
         val wifiList = wifiScanResults.map { scanResult ->
-            // Use SSID and BSSID (if accessible)
+            // Utiliser le SSID et le BSSID (si accessible)
             val wifiName = scanResult.SSID
-            val macAddress = scanResult.BSSID ?: "N/A" // BSSID is the MAC address of the access point, if available
+            val macAddress = scanResult.BSSID ?: "N/A" // BSSID est l'adresse MAC du point d'accès
             "$wifiName (MAC: $macAddress)"
         }
 
-        // Inflate the custom layout for the dialog
+        // Gonfler le layout personnalisé pour la boîte de dialogue
         val dialogView = LayoutInflater.from(context).inflate(R.layout.ajouter_equipement, null)
 
-        // Find the input fields and button from the inflated layout
+        // Trouver les champs de saisie et le bouton à partir du layout gonflé
         val wifiNameEditText = dialogView.findViewById<EditText>(R.id.wifi_name)
         val macAddressEditText = dialogView.findViewById<EditText>(R.id.mac_address)
         val addButton = dialogView.findViewById<Button>(R.id.ajout)
 
-        // Create and configure the AlertDialog
+        // Pré-remplir les champs avec les informations du réseau WiFi connecté
+        wifiNameEditText.setText(connectedWifiName)
+        macAddressEditText.setText(connectedMacAddress)
+
+        // Créer et configurer l'AlertDialog
         val alertDialog = AlertDialog.Builder(requireContext())
             .setView(dialogView)
             .setCancelable(true)
             .create()
 
-        // Update the WiFi name EditText with the detected networks
-        if (wifiList.isNotEmpty()) {
-            // Assuming you want to display the first detected network as an example
-            val firstWifi = wifiList.first()
-            wifiNameEditText.setText(firstWifi.substringBefore(" (MAC:"))
-            macAddressEditText.setText(firstWifi.substringAfter("MAC: ").replace(")", ""))
-        }
-
-        // Set an OnClickListener for the 'Ajouter' button
+        // Gestion du clic sur le bouton 'Ajouter'
         addButton.setOnClickListener {
             val wifiName = wifiNameEditText.text.toString().trim()
             val macAddress = macAddressEditText.text.toString().trim()
 
             if (wifiName.isEmpty() || macAddress.isEmpty()) {
-                // Show a toast message if any field is empty
+                // Afficher un message Toast si un champ est vide
                 Toast.makeText(context, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show()
             } else {
-                // Call the function to add equipment with the provided wifi name and MAC address
+                // Appeler la fonction pour ajouter un équipement avec le nom et l'adresse MAC
                 addEquipment(wifiName, macAddress)
-                alertDialog.dismiss() // Dismiss the dialog after adding the equipment
+                alertDialog.dismiss() // Fermer la boîte de dialogue après l'ajout
             }
         }
 
-        // Show the AlertDialog
+        // Afficher la boîte de dialogue
         alertDialog.show()
     }
 

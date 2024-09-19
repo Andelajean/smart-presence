@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    override fun onBackPressed() {
+   /* override fun onBackPressed() {
         // Afficher un dialogue de confirmation
         val builder = AlertDialog.Builder(this)
         builder.setMessage("Voulez-vous vraiment quitter l'application?")
@@ -73,4 +73,6 @@ class MainActivity : AppCompatActivity() {
         val alert = builder.create()
         alert.show()
     }
+*/
+
 }

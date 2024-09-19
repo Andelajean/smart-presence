@@ -2,40 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/skyBlue"
+    android:gravity="center"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/color3"
-    android:gravity="center">
-
-    <!-- Image au centre -->
-    <ImageView
-        android:id="@+id/center_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/theme"
-        android:background="@drawable/style_image"
-        android:clipToOutline="true"
-    android:contentDescription="Center Image"
-    android:layout_marginBottom="24dp" />
-
+    android:padding="16dp">
     <!-- Titre -->
     <TextView
         android:id="@+id/theme_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Changer Vos Thèmes ici"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/whit"
         android:layout_gravity="center"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="24dp"
+        android:text="Changer Vos Thèmes ici"
+        android:textColor="@color/whit"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <!-- Boutons avec images -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <!-- Bouton Noir -->
         <Button

@@ -50,7 +50,7 @@ class EquipementAdapter(
         private fun deleteUser(equiId: String) {
             firestore.collection("equipments").document(equiId).delete()
                 .addOnSuccessListener {
-                    Toast.makeText(context, "Compte supprimé avec succès", Toast.LENGTH_SHORT)
+                    Toast.makeText(context, "Equipement supprimé avec succès", Toast.LENGTH_SHORT)
                         .show()
                     equi = equi.filter { it.id != equiId } // Update the list
                     notifyDataSetChanged() // Notify adapter
