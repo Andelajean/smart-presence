@@ -43,7 +43,7 @@ class Horaire {
             }
 
             // Display WiFi SSID and MAC address
-           // Toast.makeText(context, "Nom du WiFi : $wifiSSID\nAdresse MAC : $currentWifiMacAddress", Toast.LENGTH_LONG).show()
+           //Toast.makeText(context, "Nom du WiFi : $wifiSSID\nAdresse MAC : $currentWifiMacAddress", Toast.LENGTH_LONG).show()
 
             // Vérifiez si l'adresse MAC est enregistrée dans la collection 'equipement'
             val db = FirebaseFirestore.getInstance()
@@ -88,7 +88,7 @@ class Horaire {
             }
 
             // Display WiFi SSID and MAC address
-           // Toast.makeText(context, "Nom du WiFi : $wifiSSID\nAdresse MAC : $currentWifiMacAddress", Toast.LENGTH_LONG).show()
+          // Toast.makeText(context, "Nom du WiFi : $wifiSSID\nAdresse MAC : $currentWifiMacAddress", Toast.LENGTH_LONG).show()
 
             // Vérifiez si l'adresse MAC est enregistrée dans la collection 'equipement'
             val db = FirebaseFirestore.getInstance()
@@ -139,25 +139,39 @@ class Horaire {
             }
     }
 // méthode pour marquer le départ
-    fun marquerDepart(context: Context) {
-        val email = FirebaseAuth.getInstance().currentUser?.email
-        val heure = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
-        val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+fun marquerDepart(context: Context) {
+    val email = FirebaseAuth.getInstance().currentUser?.email
+    val heure = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
+    val date = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
 
-        if (email == null) {
-            Toast.makeText(context, "Utilisateur non connecté", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        db.collection("horaire").document("$email-$date")
-            .update("depart", heure)
-            .addOnSuccessListener {
-                Toast.makeText(context, "Heure de départ enregistrée avec succès", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener { e ->
-                Toast.makeText(context, "Erreur lors de l'enregistrement de l'heure de départ", Toast.LENGTH_SHORT).show()
-            }
+    if (email == null) {
+        Toast.makeText(context, "Utilisateur non connecté", Toast.LENGTH_SHORT).show()
+        return
     }
+
+    val documentRef = db.collection("horaire").document("$email-$date")
+
+    // Vérifier si l'utilisateur a déjà marqué son départ
+    documentRef.get()
+        .addOnSuccessListener { document ->
+            if (document.exists() && document.getString("depart") != null) {
+                Toast.makeText(context, "Vous avez déja marqué votre depart.", Toast.LENGTH_SHORT).show()
+            } else {
+                // Marquer l'heure de départ si elle n'a pas encore été enregistrée
+                documentRef.update("depart", heure)
+                    .addOnSuccessListener {
+                        Toast.makeText(context, "Heure de départ enregistrée avec succès", Toast.LENGTH_SHORT).show()
+                    }
+                    .addOnFailureListener { e ->
+                        Toast.makeText(context, "Erreur lors de l'enregistrement de l'heure de départ", Toast.LENGTH_SHORT).show()
+                    }
+            }
+        }
+        .addOnFailureListener { e ->
+            Toast.makeText(context, "Erreur lors de la vérification des données", Toast.LENGTH_SHORT).show()
+        }
+}
+
     // méthode pour vérifier si l'utilisateur a déjà marqué son heure d'arrivée
     fun verifierEtMarquerArrive(context: Context) {
         val db = FirebaseFirestore.getInstance()

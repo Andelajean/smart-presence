@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/color3"
+    android:background="@color/skyBlue"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <!-- Titre -->
@@ -14,20 +13,20 @@
         android:id="@+id/titreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:text="Réponse aux requêtes"
-        android:textSize="24sp"
-        android:textStyle="bold"
         android:textColor="@color/whit"
-        android:layout_marginBottom="24dp" />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <!-- Conteneur du formulaire -->
     <LinearLayout
         android:id="@+id/form_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bordure"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:background="@drawable/bordure">
+        android:padding="16dp">
 
         <!-- Champ Email -->
         <com.google.android.material.textfield.TextInputLayout
@@ -74,8 +73,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="24dp"
-            android:padding="16dp"
             android:background="@drawable/bouton_back"
+            android:padding="16dp"
             android:text="Sauvegarder"
             android:textColor="@color/whit"
             android:textSize="16sp" />

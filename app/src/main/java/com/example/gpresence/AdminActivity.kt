@@ -60,6 +60,7 @@ class AdminActivity : AppCompatActivity() {
             .replace(R.id.fragment_containe, fragment)
             .commit()
     }
+    /*
     override fun onBackPressed() {
         // Afficher un dialogue de confirmation
         val builder = AlertDialog.Builder(this)
@@ -73,5 +74,6 @@ class AdminActivity : AppCompatActivity() {
             }
         val alert = builder.create()
         alert.show()
-    }
+    }*/
+
 }

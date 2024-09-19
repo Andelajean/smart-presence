@@ -27,7 +27,6 @@ class HomeFragment : Fragment() {
     private lateinit var btnMarquerDepart: Button
     private lateinit var auth: FirebaseAuth
     private lateinit var profileImageView: ImageView
-    private lateinit var notif: ImageView
     private lateinit var notificationDot: TextView
     private lateinit var firestore: FirebaseFirestore
 
@@ -44,10 +43,9 @@ class HomeFragment : Fragment() {
         btnMarquerArrive = view.findViewById(R.id.btn_marquer_arrive)
         btnMarquerDepart = view.findViewById(R.id.btn_marquer_depart)
         profileImageView = view.findViewById(R.id.center_image)
-        notif = view.findViewById(R.id.notification)
          notificationDot = view.findViewById(R.id.notification_dot)
 
-        notif.setOnClickListener {
+        notificationDot.setOnClickListener {
             showNotificationDialog()
         }
 
@@ -125,21 +123,20 @@ class HomeFragment : Fragment() {
                     if (document != null && document.exists()) {
                         val role = document.getString("role")
                         if (role == "Admin") {
-                            notif.visibility = View.VISIBLE
                             checkForUnreadNotifications()
                         } else {
-                            notif.visibility = View.GONE
+                            notificationDot.visibility = View.GONE
                         }
                     } else {
-                        notif.visibility = View.GONE
+                        notificationDot.visibility = View.GONE
                     }
                 }
                 .addOnFailureListener { exception ->
-                    notif.visibility = View.GONE
+                    notificationDot.visibility = View.GONE
                     Toast.makeText(context, "Erreur lors de la récupération du rôle utilisateur: $exception", Toast.LENGTH_SHORT).show()
                 }
         } ?: run {
-            notif.visibility = View.GONE
+            notificationDot.visibility = View.GONE
         }
     }
 
