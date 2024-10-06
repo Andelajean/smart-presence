@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Nom du wifi"
+            android:hint="@string/nomwifi"
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_info_24">
 
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Adresse Mac"
+            android:hint="@string/mac"
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_info_24">
 

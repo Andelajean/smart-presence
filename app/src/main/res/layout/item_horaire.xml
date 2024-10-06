@@ -22,7 +22,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Arrivé"
+                android:text="@string/arriver"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -40,7 +40,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Depart"
+                android:text="@string/Depart"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -65,7 +65,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Date"
+                android:text="@string/Date"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 

@@ -11,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -23,8 +22,8 @@ class SettingsFragment : Fragment() {
     companion object {
         const val PREFS_NAME = "theme_prefs"
         const val KEY_THEME = "theme"
-         const val THEME_LIGHT = "light"
-         const val THEME_DARK = "dark"
+        const val THEME_LIGHT = "light"
+        const val THEME_DARK = "dark"
     }
 
     lateinit var auth: FirebaseAuth
@@ -45,10 +44,12 @@ class SettingsFragment : Fragment() {
         val logoutButton: View = view.findViewById(R.id.logout)
         val resetPasswordButton: View = view.findViewById(R.id.reset_password)
 
+        // Gérer le changement de langue
         changeLanguageButton.setOnClickListener {
-            showLanguageSelectorDialog()
+            showChangeLanguageDialog()
         }
 
+        // Gérer le changement de thème
         changeThemeButton.setOnClickListener {
             showChangeThemeDialog()
         }
@@ -72,7 +73,54 @@ class SettingsFragment : Fragment() {
         return view
     }
 
-     fun showChangeThemeDialog() {
+    // Méthode pour afficher le dialogue de changement de langue
+    fun showChangeLanguageDialog() {
+        val dialogView = LayoutInflater.from(context).inflate(R.layout.application_language, null)
+
+        val alertDialog = AlertDialog.Builder(requireContext())
+            .setView(dialogView)
+            .setCancelable(true)
+
+                .create()
+
+        val englishOption: View = dialogView.findViewById(R.id.english_option)
+        val frenchOption: View = dialogView.findViewById(R.id.french_option)
+        val changeButton: Button = dialogView.findViewById(R.id.button_change_language)
+
+        // Gérer le choix de la langue
+        englishOption.setOnClickListener {
+            setLocale("en")
+            alertDialog.dismiss()
+        }
+
+        frenchOption.setOnClickListener {
+            setLocale("fr")
+            alertDialog.dismiss()
+        }
+
+        // Changer la langue quand l'utilisateur clique sur "Changer"
+        changeButton.setOnClickListener {
+            // Vous pouvez ajouter une logique supplémentaire ici si nécessaire
+           // Toast.makeText(context, getString(R.string.language_changed), Toast.LENGTH_SHORT).show()
+        }
+
+        alertDialog.show()
+    }
+
+    // Méthode pour changer la langue de l'application
+    fun setLocale(lang: String) {
+        val locale = Locale(lang)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.setLocale(locale)
+        requireContext().resources.updateConfiguration(config, requireContext().resources.displayMetrics)
+
+        // Redémarrer l'activité pour appliquer le changement de langue
+        requireActivity().recreate()
+    }
+
+    // Méthode pour afficher le dialogue de changement de thème
+    fun showChangeThemeDialog() {
         // Inflate the custom layout for the dialog
         val dialogView = LayoutInflater.from(context).inflate(R.layout.change_theme, null)
 
@@ -86,37 +134,22 @@ class SettingsFragment : Fragment() {
             .setPositiveButton("Sombre") { _, _ -> changeTheme(THEME_DARK) }
             .show()
     }
-
-     fun changeTheme(theme: String) {
+    // Méthode pour changer le thème
+    fun changeTheme(theme: String) {
         val editor = sharedPreferences.edit()
         editor.putString(KEY_THEME, theme)
         editor.apply()
 
-        // Appliquer le thème immédiatement
         AppCompatDelegate.setDefaultNightMode(
             if (theme == THEME_DARK) AppCompatDelegate.MODE_NIGHT_YES
             else AppCompatDelegate.MODE_NIGHT_NO
         )
 
-        // Redémarrer l'activité pour appliquer le thème
         requireActivity().recreate()
     }
 
-    override fun onResume() {
-        super.onResume()
-        applyTheme()
-    }
-
-    fun applyTheme() {
-        val theme = sharedPreferences.getString(KEY_THEME, THEME_LIGHT)
-        AppCompatDelegate.setDefaultNightMode(
-            if (theme == THEME_DARK) AppCompatDelegate.MODE_NIGHT_YES
-            else AppCompatDelegate.MODE_NIGHT_NO
-        )
-    }
-
-   fun showResetPasswordDialog() {
-        // Inflate the custom layout for the dialog
+    // Méthode pour afficher le dialogue de réinitialisation de mot de passe
+    fun showResetPasswordDialog() {
         val dialogView = LayoutInflater.from(context).inflate(R.layout.reset_password, null)
         val emailEditText = dialogView.findViewById<EditText>(R.id.email)
         val alertDialog = AlertDialog.Builder(requireContext())
@@ -127,15 +160,15 @@ class SettingsFragment : Fragment() {
         dialogView.findViewById<Button>(R.id.buton).setOnClickListener {
             val email = emailEditText.text.toString().trim()
             if (email.isEmpty()) {
-                Toast.makeText(context, "Veuillez entrer votre adresse e-mail", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.enter_email), Toast.LENGTH_SHORT).show()
             } else {
                 auth.sendPasswordResetEmail(email)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            Toast.makeText(context, "Un e-mail de réinitialisation a été envoyé", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, getString(R.string.reset_password_email_sent), Toast.LENGTH_SHORT).show()
                             alertDialog.dismiss()
                         } else {
-                            Toast.makeText(context, "Échec de l'envoi de l'e-mail de réinitialisation", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, getString(R.string.reset_password_failed), Toast.LENGTH_SHORT).show()
                         }
                     }
             }
@@ -144,8 +177,8 @@ class SettingsFragment : Fragment() {
         alertDialog.show()
     }
 
-     fun showLogoutDialog() {
-        // Inflate the custom layout for the dialog
+    // Méthode pour afficher le dialogue de déconnexion
+    fun showLogoutDialog() {
         val dialogView = LayoutInflater.from(context).inflate(R.layout.logout, null)
 
         val alertDialog = AlertDialog.Builder(requireContext())
@@ -158,16 +191,13 @@ class SettingsFragment : Fragment() {
         }
 
         dialogView.findViewById<Button>(R.id.button_yes).setOnClickListener {
-            // Déconnexion de l'utilisateur
             auth.signOut()
 
-            // Supprimer les informations de connexion de SharedPreferences
             val sharedPreferences = requireContext().getSharedPreferences("MyAppPrefs", AppCompatActivity.MODE_PRIVATE)
             val editor = sharedPreferences.edit()
-            editor.clear() // Supprimer toutes les données stockées
+            editor.clear()
             editor.apply()
 
-            // Rediriger vers LoginActivity
             val intent = Intent(context, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
@@ -178,54 +208,8 @@ class SettingsFragment : Fragment() {
         alertDialog.show()
     }
 
- fun showLanguageSelectorDialog() {
-        val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.application_language, null)
-        val englishOption = dialogView.findViewById<LinearLayout>(R.id.english_option)
-        val frenchOption = dialogView.findViewById<LinearLayout>(R.id.french_option)
-        val changeButton = dialogView.findViewById<Button>(R.id.button_change_language)
-
-        var selectedLanguage = ""
-
-        englishOption.setOnClickListener {
-            selectedLanguage = "en"
-            englishOption.setBackgroundColor(resources.getColor(R.color.selected_background))
-            frenchOption.setBackgroundColor(resources.getColor(android.R.color.transparent))
-        }
-
-        frenchOption.setOnClickListener {
-            selectedLanguage = "fr"
-            frenchOption.setBackgroundColor(resources.getColor(R.color.selected_background))
-            englishOption.setBackgroundColor(resources.getColor(android.R.color.transparent))
-        }
-
-        val dialog = AlertDialog.Builder(requireContext())
-            .setView(dialogView)
-            .create()
-
-        changeButton.setOnClickListener {
-            if (selectedLanguage.isNotEmpty()) {
-                setLocale(selectedLanguage)
-                dialog.dismiss()
-            }
-        }
-
-        dialog.show()
-    }
-
-    fun setLocale(languageCode: String) {
-        val locale = Locale(languageCode)
-        Locale.setDefault(locale)
-        val config = Configuration()
-        config.setLocale(locale)
-        requireContext().resources.updateConfiguration(config, requireContext().resources.displayMetrics)
-
-        // Redémarrer l'activité pour appliquer les changements de langue
-        val intent = requireActivity().intent
-        requireActivity().finish()
-        startActivity(intent)
-    }
-
-     fun showCreditsDialog() {
+    // Méthode pour afficher les crédits
+    fun showCreditsDialog() {
         val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.credit, null)
         val dialog = AlertDialog.Builder(requireContext())
             .setView(dialogView)
@@ -238,7 +222,8 @@ class SettingsFragment : Fragment() {
         dialog.show()
     }
 
-     fun showAboutAppDialog() {
+    // Méthode pour afficher les informations sur l'application
+    fun showAboutAppDialog() {
         val dialogView = LayoutInflater.from(requireContext()).inflate(R.layout.aboutapp, null)
         val dialog = AlertDialog.Builder(requireContext())
             .setView(dialogView)
@@ -250,5 +235,4 @@ class SettingsFragment : Fragment() {
 
         dialog.show()
     }
-
 }

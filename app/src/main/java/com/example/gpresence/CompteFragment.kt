@@ -38,12 +38,14 @@ class CompteFragment : Fragment() {
                 }
                 adapter = ListeCompte(users, requireContext()) { user ->
                     // Gérer le clic sur un élément utilisateur
-                    Toast.makeText(requireContext(), "Utilisateur cliqué: ${user.username}", Toast.LENGTH_SHORT).show()
+                    val message = getString(R.string.user_clicked, user.username)
+                    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
                 }
                 recyclerView.adapter = adapter
             }
             .addOnFailureListener { exception ->
-                Toast.makeText(requireContext(), "Erreur : ${exception.message}", Toast.LENGTH_LONG).show()
+                val errorMessage = getString(R.string.error_message, exception.message)
+                Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_LONG).show()
             }
     }
 }

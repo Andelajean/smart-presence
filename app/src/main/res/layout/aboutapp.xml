@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
-        android:text="A Propos"
+        android:text="@string/apropos"
         android:textAlignment="center"
         android:textColor="@color/whit"
         android:textSize="24sp"
@@ -41,7 +41,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:padding="16dp"
-            android:text="Smart Presence est une application qui permet de marquer sa presence grâce à la détection du Wi-Fi de entreprise!"
+            android:text="@string/description"
             android:textAlignment="center"
             android:textColor="@color/whit"
             android:textSize="16sp" />
@@ -63,8 +63,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/color3"
-            android:text="D'Accord!" />
-
+            android:text="@string/daccord" />
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="44dp"

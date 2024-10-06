@@ -21,30 +21,19 @@ class HoraireTest {
     private lateinit var mockWifiInfo: WifiInfo
     private lateinit var mockFirebaseAuth: FirebaseAuth
     private lateinit var mockFirestore: FirebaseFirestore
-
     @Before
     fun setUp() {
-        // Initialize your Horaire class and mock dependencies
         horaire = Horaire()
-
-        // Mocks
         mockContext = mock(Context::class.java)
         mockWifiManager = mock(WifiManager::class.java)
         mockWifiInfo = mock(WifiInfo::class.java)
         mockFirebaseAuth = mock(FirebaseAuth::class.java)
         mockFirestore = mock(FirebaseFirestore::class.java)
-
-        // Mock Firebase Authentication
         `when`(FirebaseAuth.getInstance()).thenReturn(mockFirebaseAuth)
-
-        // Mock Firebase Firestore
         `when`(FirebaseFirestore.getInstance()).thenReturn(mockFirestore)
-
-        // Mock WiFi Manager behavior
         `when`(mockContext.getSystemService(Context.WIFI_SERVICE)).thenReturn(mockWifiManager)
         `when`(mockWifiManager.connectionInfo).thenReturn(mockWifiInfo)
     }
-
     @Test
     fun `test connecter() when connected to correct WiFi`() {
         `when`(mockWifiInfo.networkId).thenReturn(1)
@@ -82,43 +71,29 @@ class HoraireTest {
         verify(mockFirestore.collection("horaire").document("test@example.com-2024-09-08"), times(1)).set(any())
         verify(mockFirebaseAuth, times(1)).currentUser
     }
-
-
     @Test
     fun `test verifierEtMarquerArrive() when no previous record`() {
-        // Mock user authentication
-        val mockUser = mock(FirebaseUser::class.java) // Utilisez FirebaseUser ici au lieu de FirebaseAuth
+        val mockUser = mock(FirebaseUser::class.java)
         `when`(mockFirebaseAuth.currentUser).thenReturn(mockUser)
-        `when`(mockUser.email).thenReturn("test@example.com") // Accédez à l'email via FirebaseUser
-
-        // Mock Firestore document not existing
+        `when`(mockUser.email).thenReturn("test@example.com")
         val mockDocumentSnapshot = mock(DocumentSnapshot::class.java)
         `when`(mockDocumentSnapshot.exists()).thenReturn(false)
-
         doAnswer {
             val onSuccessListener = it.getArgument<(DocumentSnapshot) -> Unit>(0)
             onSuccessListener.invoke(mockDocumentSnapshot)
             null
         }.`when`(mockFirestore.collection("horaire").document("test@example.com-2024-09-08").get())
-
-        // Appeler la méthode
         horaire.verifierEtMarquerArrive(mockContext)
-
-        // Vérifiez que l'arrivée est marquée
         verify(mockFirestore.collection("horaire").document("test@example.com-2024-09-08"), times(1)).get()
         verify(mockFirestore.collection("horaire").document("test@example.com-2024-09-08"), times(1)).set(any())
     }
-
     @Test
     fun `test marquerDepart() when user logged in`() {
         // Mock user authentication
-        val mockUser = mock(FirebaseUser::class.java) // Utilisez FirebaseUser ici au lieu de FirebaseAuth
+        val mockUser = mock(FirebaseUser::class.java)
         `when`(mockFirebaseAuth.currentUser).thenReturn(mockUser)
-        `when`(mockUser.email).thenReturn("test@example.com") // Accédez à l'email via FirebaseUser
-        // Call the method
+        `when`(mockUser.email).thenReturn("test@example.com")
         horaire.marquerDepart(mockContext)
-
-        // Verify that the correct Firestore document is updated
         verify(mockFirestore.collection("horaire").document("test@example.com-2024-09-08"), times(1)).update("depart", any())
     }
 }

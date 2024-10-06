@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:text="Réponse aux requêtes"
+        android:text="@string/rp"
         android:textColor="@color/whit"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Email"
+            android:hint="@string/email"
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_email_24">
 
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Arrivée"
+            android:hint="@string/arriver"
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_lock_open_24">
 
@@ -75,7 +75,7 @@
             android:layout_marginTop="24dp"
             android:background="@drawable/bouton_back"
             android:padding="16dp"
-            android:text="Sauvegarder"
+            android:text="@string/envoyer"
             android:textColor="@color/whit"
             android:textSize="16sp" />
     </LinearLayout>

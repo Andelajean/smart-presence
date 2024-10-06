@@ -18,7 +18,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Nom"
+            android:text="@string/nome"
             android:textColor="@color/black"
             android:textSize="14sp" />
 
@@ -44,7 +44,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Mac"
+            android:text="@string/mac"
             android:textColor="@color/black"
             android:textSize="14sp" />
 

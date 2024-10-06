@@ -39,7 +39,7 @@
         android:id="@+id/loading_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Une gestion Moderne de la présence"
+        android:text="@string/chargement"
         android:textColor="@color/colorEnd"
         android:textSize="18sp"
         android:layout_marginTop="20dp"
