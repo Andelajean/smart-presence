@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="24dp"
-        android:text="Changer Vos Thèmes ici"
+        android:text="@string/theme"
         android:textColor="@color/whit"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -34,7 +34,7 @@
             android:backgroundTint="@android:color/white"
             android:drawableRight="@drawable/baseline_lightbulb_circle_24"
             android:drawablePadding="8dp"
-            android:text="Blanc"
+            android:text="@string/blanc"
             android:textColor="@android:color/black" />
 
         <!-- Bouton Blanc   -->
@@ -45,7 +45,7 @@
             android:backgroundTint="@android:color/black"
             android:drawableLeft="@drawable/baseline_wb_sunny_24"
             android:drawablePadding="8dp"
-            android:text="Noir"
+            android:text="@string/noir"
             android:textColor="@android:color/white" />
     </LinearLayout>
 

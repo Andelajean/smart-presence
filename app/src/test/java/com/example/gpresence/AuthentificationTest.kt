@@ -31,8 +31,6 @@ class AuthentificationTest {
         mockFirebaseAuth = mock(FirebaseAuth::class.java)
         mockFirestore = mock(FirebaseFirestore::class.java)
         mockUser = mock(FirebaseUser::class.java)
-
-        // Mock FirebaseAuth et FirebaseFirestore
         auth = Authentification(mockContext)
         val authField = Authentification::class.java.getDeclaredField("auth")
         authField.isAccessible = true
@@ -45,54 +43,35 @@ class AuthentificationTest {
         `when`(mockFirebaseAuth.currentUser).thenReturn(mockUser)
         `when`(mockUser.uid).thenReturn("testUID")
     }
-
     @Test
     fun `registerUser should show toast when fields are empty`() {
-        // Exécution
         auth.registerUser("", "", "", "")
-
-        // Vérification que Toast.makeText() a été appelé
         verify(mockContext, times(1)).let {
             Toast.makeText(it, "Please fill in all fields", Toast.LENGTH_SHORT).show()
         }
     }
-
     @Test
     fun `registerUser should show toast when passwords do not match`() {
-        // Exécution
         auth.registerUser("test@example.com", "password1", "username", "password2")
-
-        // Vérification que Toast.makeText() a été appelé pour mot de passe non concordant
         verify(mockContext, times(1)).let {
             Toast.makeText(it, "Passwords do not match", Toast.LENGTH_SHORT).show()
         }
     }
-
     @Test
     fun `registerUser should call FirebaseAuth createUserWithEmailAndPassword when data is valid`() {
-        // Exécution
         auth.registerUser("test@example.com", "password", "username", "password")
-
-        // Vérification que la méthode createUserWithEmailAndPassword est appelée
         verify(mockFirebaseAuth, times(1)).createUserWithEmailAndPassword("test@example.com", "password")
     }
-
     @Test
     fun `registerUser should store user data in Firestore on successful registration`() {
-        // Mock le succès de l'inscription
         val mockTask = mock<Task<AuthResult>>()
         `when`(mockTask.isSuccessful).thenReturn(true)
         val taskCaptor = ArgumentCaptor.forClass(OnCompleteListener::class.java)
         `when`(mockFirebaseAuth.createUserWithEmailAndPassword(anyString(), anyString()))
             .thenReturn(mockTask)
-
-        // Exécution
         auth.registerUser("test@example.com", "password", "username", "password")
-
-        // Vérifier que les données de l'utilisateur sont enregistrées dans Firestore
         verify(mockFirestore.collection("users").document("testUID"), times(1)).set(any(Authentification.RegisterClass::class.java), any(SetOptions::class.java))
     }
-
     @Test
     fun `loginUser should call FirebaseAuth signInWithEmailAndPassword when data is valid`() {
         // Exécution

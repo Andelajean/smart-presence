@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:text="English"
+            android:text="@string/e"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -40,14 +40,14 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/amerique" />
+            android:src="@drawable/france" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:text="Français"
+            android:text="@string/f"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -55,5 +55,5 @@
         android:id="@+id/button_change_language"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Change" />
+        android:text="@string/ch" />
 </LinearLayout>

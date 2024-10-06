@@ -54,41 +54,27 @@ class RequeteTest {
         `when`(requestCollection.add(any())).thenReturn(requestTask)
         `when`(requestTask.isSuccessful).thenReturn(true)
         `when`(firestore.collection("requests")).thenReturn(requestCollection)
-
-        // Act
         fragment.submitRequest()
-
-
-    }
-
+ }
     @Test
     fun testSubmitRequestFailure() {
-        // Arrange
         `when`(documentSnapshot.exists()).thenReturn(true)
         `when`(documentSnapshot.getString("username")).thenReturn("testuser")
         `when`(task.isSuccessful).thenReturn(true)
         `when`(task.result).thenReturn(documentSnapshot)
         `when`(firestore.collection("users").document("user_id").get()).thenReturn(task)
-
         val requestMotif = "Test Motif"
         val requestDetail = "Test Detail"
         `when`(fragment.requestMotif.text.toString()).thenReturn(requestMotif)
         `when`(fragment.requestDetail.text.toString()).thenReturn(requestDetail)
-
         val requestCollection = mock(CollectionReference::class.java)
         val requestTask = mock(Task::class.java) as Task<Void>
         `when`(requestCollection.add(any())).thenReturn(requestTask)
         `when`(requestTask.isSuccessful).thenReturn(false)
         `when`(firestore.collection("requests")).thenReturn(requestCollection)
-
-        // Act
         fragment.submitRequest()
-
-        // Assert
-        // Verify Toast message and Firestore interactions
     }
 }
-
  fun <T> OngoingStubbing<T>.thenReturn(requestTask: Task<Void>) {
 
 }

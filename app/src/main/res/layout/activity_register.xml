@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:gravity="center"
-        android:text="Création de Compte"
+        android:text="@string/compte"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Nom"
+            android:hint="@string/nomu"
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_manage_accounts_24">
 
@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Email"
+            android:hint="@string/email"
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_email_24">
 
@@ -87,7 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Mot de Passe"
+            android:hint="@string/mpd"
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_lock_open_24">
 
@@ -104,7 +104,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Confirmer le MP"
+            android:hint="@string/cmpd"
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_lock_reset_24">
 
@@ -124,7 +124,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/bouton_back"
             android:padding="12dp"
-            android:text="Register"
+            android:text="@string/crecompte"
             android:textColor="@color/white" />
 
         <!-- Already Have Account Text -->
@@ -138,7 +138,7 @@
             android:focusable="true"
             android:gravity="center"
             android:padding="16dp"
-            android:text="Vous avez deja un Compte??"
+            android:text="@string/dejacompte"
             android:textSize="18sp"
             android:textStyle="bold" />
     </LinearLayout>

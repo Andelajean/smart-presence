@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_marginStart="150dp"
-            android:text="Profil"
+            android:text="@string/menu_profil"
             android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Username"
+            android:hint="@string/nomu"
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_manage_accounts_24">
 
@@ -97,7 +97,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Email"
+            android:hint="@string/email"
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_email_24">
 
@@ -115,7 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Telephone"
+            android:hint="@string/telephone"
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_info_24">
 
@@ -133,7 +133,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Role"
+            android:hint="@string/role"
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_settings_24">
 
@@ -153,7 +153,7 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/bouton_back"
             android:padding="12dp"
-            android:text="Mettre à Jour"
+            android:text="@string/jour"
             android:textColor="@android:color/white" />
     </LinearLayout>
 
@@ -163,7 +163,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Mettez à Jour votre Profil ici"
+        android:text="@string/jourp"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

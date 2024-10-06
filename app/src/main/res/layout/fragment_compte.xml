@@ -38,7 +38,7 @@
             android:id="@+id/title_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Gestion des comptes"
+            android:text="@string/comptte"
             android:textSize="18sp"
             android:layout_marginStart="10dp"
             android:textStyle="bold"

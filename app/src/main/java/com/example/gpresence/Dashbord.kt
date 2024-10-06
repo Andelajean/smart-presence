@@ -41,18 +41,18 @@ class DashboardFragment : Fragment() {
 
             override fun createFragment(position: Int): Fragment {
                 return when (position) {
-                    0 ->HomeFragment()
+                    0 -> HomeFragment()
                     1 -> MesEtats()
-
                     else -> throw IllegalStateException("Unexpected position $position")
                 }
             }
+
         }
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = when (position) {
-                0 -> "Home"
-                1 -> "Mes Etats"
+                0 -> getString(R.string.tab_home)
+                1 -> getString(R.string.tab_mes_etats)
                 else -> null
             }
         }.attach()

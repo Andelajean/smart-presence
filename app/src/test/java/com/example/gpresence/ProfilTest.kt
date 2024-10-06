@@ -46,18 +46,12 @@ class ProfilTest {
         `when`(documentSnapshot.getString("telephone")).thenReturn("123456789")
         `when`(documentSnapshot.getString("role")).thenReturn("Admin")
         `when`(documentSnapshot.getString("imageUrl")).thenReturn("http://example.com/image.jpg")
-
         val task = mock(Task::class.java) as Task<DocumentSnapshot>
         `when`(task.isSuccessful).thenReturn(true)
         `when`(task.result).thenReturn(documentSnapshot)
-
         `when`(firestore.collection("users").document("user_id").get()).thenReturn(task)
-
-        // Perform the operation
         fragmentScenario.onFragment { fragment ->
             fragment.loadUserProfile()
-
-            // Verify that the UI elements are updated correctly
             val usernameEditText = fragment.view?.findViewById<TextView>(R.id.username)
             val emailEditText = fragment.view?.findViewById<TextView>(R.id.email)
             val telephoneEditText = fragment.view?.findViewById<TextView>(R.id.telephone)
