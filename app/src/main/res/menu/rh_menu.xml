@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_tableau"
+        android:icon="@android:drawable/ic_dialog_dialer"
+        android:title="Tableau de Bord" />
+    <item
+        android:id="@+id/nav_r"
+        android:icon="@drawable/baseline_article_24"
+        android:title="Requete" />
+    <item
+        android:id="@+id/nav_E"
+        android:icon="@drawable/baseline_assessment_24"
+        android:title="Etats" />
+    <item
+        android:id="@+id/nav_s"
+        android:icon="@drawable/baseline_add_chart_24"
+        android:title="Statistique" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/baseline_manage_accounts_24"
+        android:title="Paramètre" />
+</menu>

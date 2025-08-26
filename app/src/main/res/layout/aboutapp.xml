@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/skyBlue"
+    android:background="@drawable/font"
     android:orientation="vertical"
     android:padding="16dp">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="161dp"
+        android:layout_height="156dp"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:background="@drawable/style_logo"
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:backgroundTint="@color/color3"
+            android:backgroundTint="@color/color2"
             android:text="@string/daccord" />
         <ImageView
             android:id="@+id/imageView2"

@@ -47,6 +47,7 @@
 
     <!-- Label for Request -->
     <TextView
+        android:background="@color/gris"
         android:id="@+id/request_motif_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -87,6 +88,7 @@
                 android:id="@+id/request_motif"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+            android:background="@color/gris"
                 android:padding="12dp"
                 android:textSize="24sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -106,6 +108,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:minLines="4"
+                android:background="@color/gris"
                 android:padding="12dp"
                  />
         </com.google.android.material.textfield.TextInputLayout>

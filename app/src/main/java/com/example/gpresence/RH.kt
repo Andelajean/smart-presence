@@ -13,20 +13,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
-
-
-    /*
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val biometricAuth = BiometricAuth(this)
-
-        // Lancer l'authentification biométrique
-        biometricAuth.authenticate()
-    }
-     */
+class RHActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,25 +22,28 @@ class MainActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(
             if (theme == SettingsFragment.THEME_DARK) AppCompatDelegate.MODE_NIGHT_YES
             else AppCompatDelegate.MODE_NIGHT_NO)
-        setContentView(R.layout.activity_main)
-
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        setContentView(R.layout.activity_rh)
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.imagination)
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_dashboard -> {
-                    loadFragment(DashboardFragment())
+                R.id.nav_tableau -> {
+                    loadFragment(StatFragment())
                     true
                 }
-                R.id.nav_parametre -> {
+                R.id.nav_r -> {
+                    loadFragment(VoirRequete())
+                    true
+                }
+                R.id.nav_E -> {
+                    loadFragment(StatFragment())
+                    true
+                }
+                R.id.nav_s -> {
+                    loadFragment(Stattisque_Rh())
+                    true
+                }
+                R.id.nav_profile->{
                     loadFragment(SettingsFragment())
-                    true
-                }
-                R.id.nav_profil -> {
-                    loadFragment(ProfileFragment())
-                    true
-                }
-                R.id.nav_requete -> {
-                    loadFragment(RequestsFragment())
                     true
                 }
                 else -> false
@@ -62,17 +52,16 @@ class MainActivity : AppCompatActivity() {
 
         // Load the default fragment
         if (savedInstanceState == null) {
-            loadFragment(DashboardFragment())
+            loadFragment(StatFragment())
         }
     }
-
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment)
+            .replace(R.id.fragment_container2, fragment)
             .commit()
     }
-
-   /* override fun onBackPressed() {
+    /*
+    override fun onBackPressed() {
         // Afficher un dialogue de confirmation
         val builder = AlertDialog.Builder(this)
         builder.setMessage("Voulez-vous vraiment quitter l'application?")
@@ -85,7 +74,6 @@ class MainActivity : AppCompatActivity() {
             }
         val alert = builder.create()
         alert.show()
-    }
-*/
+    }*/
 
 }

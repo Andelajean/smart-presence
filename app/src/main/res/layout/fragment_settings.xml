@@ -70,10 +70,11 @@
                 android:textStyle="bold" />
 
             <LinearLayout
+
                 android:id="@+id/change_language"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/skyBlue"
+                android:background="@color/gris"
                 android:orientation="horizontal"
                 android:padding="15dp">
 
@@ -141,7 +142,7 @@
                 android:id="@+id/reset_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/skyBlue"
+                android:background="@color/gris"
                 android:orientation="horizontal"
                 android:padding="15dp">
 
@@ -246,7 +247,7 @@
                 android:id="@+id/about_app"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/skyBlue"
+                android:background="@color/gris"
                 android:orientation="horizontal"
                 android:padding="15dp">
 

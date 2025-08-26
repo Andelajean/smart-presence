@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@drawable/font"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
@@ -60,6 +61,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/username"
+                android:background="@color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="12dp"/>
@@ -71,6 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:hint="@string/email"
+
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_email_24">
 
@@ -79,6 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:background="@color/white"
                 android:padding="12dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,6 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@color/gris"
             android:hint="@string/mpd"
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_lock_open_24">
@@ -94,9 +99,10 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="49dp"
+                android:background="@color/white"
                 android:inputType="textPassword"
-                android:padding="12dp"/>
+                android:padding="20dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Confirm Password Field -->
@@ -104,6 +110,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@color/white"
             android:hint="@string/cmpd"
             app:endIconMode="custom"
             app:startIconDrawable="@drawable/baseline_lock_reset_24">
@@ -125,7 +132,7 @@
             android:background="@drawable/bouton_back"
             android:padding="12dp"
             android:text="@string/crecompte"
-            android:textColor="@color/white" />
+            android:textColor="@color/skyBlue" />
 
         <!-- Already Have Account Text -->
         <TextView

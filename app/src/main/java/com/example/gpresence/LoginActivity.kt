@@ -120,8 +120,11 @@ class LoginActivity : AppCompatActivity() {
                                             if (userRole == "Admin") {
                                                 val intent = Intent(this, AdminActivity::class.java)
                                                 startActivity(intent)
-                                            } else {
+                                            } else if(userRole == "user") {
                                                 val intent = Intent(this, MainActivity::class.java)
+                                                startActivity(intent)
+                                            } else {
+                                                val intent = Intent(this, RHActivity::class.java)
                                                 startActivity(intent)
                                             }
 

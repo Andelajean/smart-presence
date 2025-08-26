@@ -10,12 +10,12 @@
     <color name="colorAccen">#03DAC5</color>
     <color name="whit">#FEFEFE</color>
     <color name="blac">#000000</color>
-    <color name="skyBlue">#87CEEB</color>
+    <color name="skyBlue">#2E5CD7</color>
     <color name="colorStart">#FF5722</color> <!-- Couleur de début -->
     <color name="colorEnd">#FF9800</color> <!-- Couleur de fin -->
     <color name="color1">#FF0000</color>
     <color name="color2">#00FF00</color>
-    <color name="color3">#0000FF</color>
+    <color name="color3">#B9FF9D</color>
     <color name="selected">#3F51B5</color>
     <color name="unselected">#FFFFFF</color>
     <color name="blue">#0000FF</color>
